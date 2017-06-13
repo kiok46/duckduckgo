@@ -7,7 +7,7 @@ import { SearchBar } from 'react-native-elements'
 import Colors from './constants/Colors';
 
 import SearchScreen from './screens/SearchScreen';
-import FeedScreen from './screens/FeedScreen';
+import StoriesScreen from './screens/StoriesScreen';
 import FavouritesScreen from './screens/FavouritesScreen';
 import HistoryScreen from './screens/HistoryScreen';
 import SettingsScreen from './screens/SettingsScreen';
@@ -53,7 +53,7 @@ class AppContainer extends React.Component {
   render() {
       const MainNavigator = TabNavigator({
           search: { screen: SearchScreen },
-          feed: { screen: FeedScreen },
+          stories: { screen: StoriesScreen },
           favourites: { screen: FavouritesScreen },
           history: { screen: HistoryScreen },
           settings: { screen: SettingsScreen },
@@ -66,11 +66,11 @@ class AppContainer extends React.Component {
       });
       if (this.state.appIsReady){
           return (
-                  <MainNavigator />
+              <MainNavigator />
           );
       }
       return (
-          <AppLoading />
+          <MainNavigator />
       );
 
   }
