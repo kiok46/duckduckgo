@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import { ScrollView, View, StyleSheet, Text, Image } from 'react-native';
+import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Card, Button } from 'react-native-elements';
 import CustomSearchBar from '../components/customSearchBar';
 import Colors from '../constants/Colors';
 
 
-class SearchScreen extends Component {
-    static navigationOptions = ({ navigation }) => ({
-          tabBarLabel: 'Search',
-          tabBarIcon: ({ tintColor, focused }) => (
-              <FontAwesome
-                  name={'search'}
-                  size={24}
-                  color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-                />
-          ),
-    });
+class StoriesScreen extends Component {
+  static navigationOptions = ({ navigation }) => ({
+        tabBarLabel: 'Feed',
+        tabBarIcon: ({ tintColor, focused }) => (
+            <FontAwesome
+                name={'newspaper-o'}
+                size={24}
+                color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+              />
+        ),
+  });
 
   render() {
     return (
@@ -34,7 +34,6 @@ class SearchScreen extends Component {
                 title='VIEW NOW' />
             </Card>
         </View>
-
     );
   }
 }
@@ -46,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SearchScreen;
+export default StoriesScreen;

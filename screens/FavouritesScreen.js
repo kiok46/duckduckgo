@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, TextInput, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import CustomSearchBar from '../components/customSearchBar';
 import Colors from '../constants/Colors';
-import { SearchBar } from 'react-native-elements';
+
 
 class FavouritesScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -16,24 +17,13 @@ class FavouritesScreen extends Component {
           ),
     });
 
-  onSearch = () => {
-
-  }
 
   render() {
     return (
-        <View style={{ marginTop: 16 }}>
-            <SearchBar
-                lightTheme
-                autoFocus
-                textAlign='center'
-                containerStyle={styles.searchBar}
-                inputStyle= {styles.insideSearchBar}
-                onChangeText={this.onSearch}
-                placeholder='Type Here...'
-                placeholderTextColor="#fff"
+        <View style={styles.searchAreaView} >
+            <CustomSearchBar
+                onFocus={this.onFocus}
             />
-            <Text>FFFFF</Text>
         </View>
 
     );
@@ -46,11 +36,20 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
   },
-  searchBar: {
-      backgroundColor: Colors.tintColor,
+  inputStyle: {
+      height: 40,
+      borderColor: 'gray',
+      borderWidth: 1,
+      paddingRight: 5,
+      paddingLeft: 5,
+      fontSize: 18,
+      lineHeight: 23,
+      backgroundColor: Colors.tintColor
   },
-  insideSearchBar: {
-      backgroundColor: Colors.darkTintColor,
+  searchAreaView: {
+      paddingTop: 24,
+      backgroundColor: Colors.tintColor,
+      borderColor: Colors.tintColor
   }
 });
 
