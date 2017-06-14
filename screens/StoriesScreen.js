@@ -8,7 +8,7 @@ import Colors from '../constants/Colors';
 
 class StoriesScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
-        tabBarLabel: 'Feed',
+        tabBarLabel: 'Stories',
         tabBarIcon: ({ tintColor, focused }) => (
             <FontAwesome
                 name={'newspaper-o'}

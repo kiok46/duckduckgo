@@ -4,17 +4,11 @@ import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import { List, ListItem } from 'react-native-elements';
 import CustomSearchBar from '../components/customSearchBar';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+
 
 class SettingsScreen extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state= {
-            autoComplete: false,
-            saveRecents: false,
-            quackOnRefresh: false
-        }
-    }
 
     static navigationOptions = ({ navigation }) => ({
           tabBarLabel: 'Settings',
@@ -29,26 +23,26 @@ class SettingsScreen extends Component {
     });
 
     onChangeQuackOnRefresh = () => {
-        if ( this.state.quackOnRefresh ){
-            this.setState({quackOnRefresh: false})
+        if (this.props.quack_on_refresh) {
+            this.props.changeQuackOnRefreshSetting(false)
         } else {
-            this.setState({quackOnRefresh: true})
+            this.props.changeQuackOnRefreshSetting(true)
         }
     }
 
   onChangeAutoComplete = () => {
-      if ( this.state.autoComplete ){
-          this.setState({autoComplete: false})
+      if (this.props.autocomplete) {
+          this.props.changeAutocompleteSetting(false)
       } else {
-          this.setState({autoComplete: true})
+          this.props.changeAutocompleteSetting(true)
       }
   }
 
   onChangeSaveRecents = () => {
-      if ( this.state.saveRecents ){
-          this.setState({saveRecents: false})
+      if (this.props.save_recent) {
+          this.props.changeSaveRecentSetting(false)
       } else {
-          this.setState({saveRecents: true})
+          this.props.changeSaveRecentSetting(true)
       }
   }
 
@@ -81,7 +75,7 @@ class SettingsScreen extends Component {
                     switchButton={true}
                     hideChevron
                     switchOnTintColor={Colors.tintColor}
-                    switched={this.state.quackOnRefresh}
+                    switched={this.props.quack_on_refresh}
                     onSwitch={this.onChangeQuackOnRefresh}
                 />
             </List>
@@ -94,7 +88,7 @@ class SettingsScreen extends Component {
                     title='Autocomplete'
                     hideChevron
                     switchOnTintColor={Colors.tintColor}
-                    switched={this.state.autoComplete}
+                    switched={this.props.autocomplete}
                     onSwitch={this.onChangeAutoComplete}
                 />
                 <ListItem
@@ -111,7 +105,7 @@ class SettingsScreen extends Component {
                     title='Save Recents'
                     hideChevron
                     switchOnTintColor={Colors.tintColor}
-                    switched={this.state.saveRecents}
+                    switched={this.props.save_recent}
                     onSwitch={this.onChangeSaveRecents}
                 />
                 <ListItem
@@ -175,4 +169,14 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SettingsScreen;
+
+const mapStateToProps = (state) => {
+	return {
+		autocomplete: state.LoadSettings.autocomplete,
+        quack_on_refresh: state.LoadSettings.quack_on_refresh,
+        save_recent: state.LoadSettings.save_recent
+	};
+}
+
+
+export default connect(mapStateToProps, actions)(SettingsScreen);
