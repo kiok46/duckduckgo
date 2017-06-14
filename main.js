@@ -4,6 +4,8 @@ import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { SearchBar } from 'react-native-elements'
+import { Provider } from 'react-redux';
+
 import Colors from './constants/Colors';
 
 import SearchScreen from './screens/SearchScreen';
@@ -14,7 +16,7 @@ import SettingsScreen from './screens/SettingsScreen';
 
 // import Router from './navigation/Router';
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
-// import store from './store';
+import store from './store';
 
 
 class AppContainer extends React.Component {
@@ -66,11 +68,23 @@ class AppContainer extends React.Component {
       });
       if (this.state.appIsReady){
           return (
-              <MainNavigator />
+              <View
+                 style={{ flex:1 }}>
+                 <StatusBar barStyle="light-content" />
+                 <Provider store={store}>
+                   <MainNavigator />
+                 </Provider>
+            </View>
           );
       }
       return (
-          <MainNavigator />
+          <View
+             style={{ flex:1 }}>
+             <StatusBar barStyle="light-content" />
+             <Provider store={store}>
+               <MainNavigator />
+             </Provider>
+        </View>
       );
 
   }
