@@ -6,44 +6,40 @@ import { List, ListItem } from 'react-native-elements';
 import CustomSearchBar from '../components/customSearchBar';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { AsyncStorage } from 'react-native';
 
 
 class SettingsScreen extends Component {
 
-    static navigationOptions = ({ navigation }) => ({
-          tabBarLabel: 'Settings',
-          tabBarIcon: ({ tintColor, focused }) => (
-              <FontAwesome
-                  name={'cog'}
-                  size={24}
-                  color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-                />
+  static navigationOptions = ({ navigation }) => ({
+      tabBarLabel: 'Settings',
+      tabBarIcon: ({ tintColor, focused }) => (
+          <FontAwesome
+              name={'cog'}
+              size={24}
+              color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+            />
 
-          ),
-    });
+      ),
+  });
 
-    onChangeQuackOnRefresh = () => {
-        if (this.props.quack_on_refresh) {
-            this.props.changeQuackOnRefreshSetting(false)
-        } else {
-            this.props.changeQuackOnRefreshSetting(true)
-        }
-    }
+  async componentDidMount() {
+    // AsyncStorage.clear()
+    await this.props.changeAutocompleteSetting(true);
+    await this.props.changeQuackOnRefreshSetting(true);
+    await this.props.changeSaveRecentSetting(true);
+  }
+
+  onChangeQuackOnRefresh = () => {
+    this.props.changeQuackOnRefreshSetting();
+  }
 
   onChangeAutoComplete = () => {
-      if (this.props.autocomplete) {
-          this.props.changeAutocompleteSetting(false)
-      } else {
-          this.props.changeAutocompleteSetting(true)
-      }
+      this.props.changeAutocompleteSetting();
   }
 
   onChangeSaveRecents = () => {
-      if (this.props.save_recent) {
-          this.props.changeSaveRecentSetting(false)
-      } else {
-          this.props.changeSaveRecentSetting(true)
-      }
+      this.props.changeSaveRecentSetting();
   }
 
   render() {
@@ -174,7 +170,8 @@ const mapStateToProps = (state) => {
 	return {
 		autocomplete: state.LoadSettings.autocomplete,
         quack_on_refresh: state.LoadSettings.quack_on_refresh,
-        save_recent: state.LoadSettings.save_recent
+        save_recent: state.LoadSettings.save_recent,
+
 	};
 }
 
