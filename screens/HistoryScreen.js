@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
+import Search from 'react-native-search-box';
+
 
 class HistoryScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -13,6 +15,20 @@ class HistoryScreen extends Component {
                   color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
                 />
           ),
+          header: (
+              <View style={{ backgroundColor: Colors.tintColor }}>
+                <View style={{ marginTop: 24 }} >
+                  <Search
+                    backgroundColor={Colors.tintColor}
+                    tintColorSearch="purple"
+                    color= 'black'
+                    tintColorSearch={Colors.darkTintColor}
+                    ref="search_box"
+                    placeholder="Search DuckDuckGo"
+                  />
+                </View>
+              </View>
+          )
     });
 
   render() {

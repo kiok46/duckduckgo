@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Card, Button } from 'react-native-elements';
-import CustomSearchBar from '../components/customSearchBar';
+import Search from 'react-native-search-box';
 import Colors from '../constants/Colors';
 
 
@@ -16,14 +16,27 @@ class StoriesScreen extends Component {
                 color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
               />
         ),
+        header: (
+            <View style={{ backgroundColor: Colors.tintColor }}>
+              <View style={{ marginTop: 24 }} >
+                <Search
+                  backgroundColor={Colors.tintColor}
+                  tintColorSearch="purple"
+                  color= 'black'
+                  tintColorSearch={Colors.darkTintColor}
+                  ref="search_box"
+                  placeholder="Search DuckDuckGo"
+                />
+              </View>
+            </View>
+        )
   });
 
   render() {
     return (
         <View>
-            <CustomSearchBar />
             <Card
-              title='HELLO WORLD'>
+              title='Stories WORLD'>
               <Text style={{marginBottom: 10}}>
                 The idea with React Native Elements is more about component structure than actual design.
               </Text>

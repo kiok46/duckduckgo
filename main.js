@@ -53,19 +53,26 @@ class AppContainer extends React.Component {
   }
 
   render() {
-      const MainNavigator = TabNavigator({
-          search: { screen: SearchScreen },
-          stories: { screen: StoriesScreen },
-          favourites: { screen: FavouritesScreen },
-          history: { screen: HistoryScreen },
-          settings: { screen: SettingsScreen },
-      },
-      {
-          tabBarOptions: {
-             activeTintColor: Colors.tintColor,
-          },
-          lazy: true
-      });
+
+      const MainNavigator = StackNavigator({
+          Root: {
+                 screen: TabNavigator({
+                    search: { screen: SearchScreen },
+                    stories: { screen: StoriesScreen },
+                    favourites: { screen: FavouritesScreen },
+                    history: { screen: HistoryScreen },
+                    settings: { screen: SettingsScreen },
+                },
+                {
+                    tabBarOptions: {
+                       activeTintColor: Colors.tintColor,
+                    },
+                    lazy: true,
+                    tabBarPosition: 'bottom'
+                }),
+            },
+      })
+
       if (this.state.appIsReady){
           return (
               <View

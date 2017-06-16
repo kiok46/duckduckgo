@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, TextInput, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import CustomSearchBar from '../components/customSearchBar';
+import Search from 'react-native-search-box';
 import Colors from '../constants/Colors';
 
 
@@ -15,15 +15,26 @@ class FavouritesScreen extends Component {
                   color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
                 />
           ),
+          header: (
+              <View style={{ backgroundColor: Colors.tintColor }}>
+                <View style={{ marginTop: 24 }} >
+                  <Search
+                    backgroundColor={Colors.tintColor}
+                    tintColorSearch="purple"
+                    color= 'black'
+                    tintColorSearch={Colors.darkTintColor}
+                    ref="search_box"
+                    placeholder="Search DuckDuckGo"
+                  />
+                </View>
+              </View>
+          )
     });
 
 
   render() {
     return (
-        <View style={styles.searchAreaView} >
-            <CustomSearchBar
-                onFocus={this.onFocus}
-            />
+        <View >
         </View>
 
     );
