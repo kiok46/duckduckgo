@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, View, StyleSheet, Text, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Card, Button } from 'react-native-elements';
-import CustomSearchBar from '../components/customSearchBar';
+import Search from 'react-native-search-box';
 import Colors from '../constants/Colors';
 
 
@@ -16,12 +16,25 @@ class SearchScreen extends Component {
                   color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
                 />
           ),
+          header: (
+              <View style={{ backgroundColor: Colors.tintColor }}>
+                <View style={{ marginTop: 24 }} >
+                  <Search
+                    backgroundColor={Colors.tintColor}
+                    tintColorSearch="purple"
+                    color= 'black'
+                    tintColorSearch={Colors.darkTintColor}
+                    ref="search_box"
+                    placeholder="Search DuckDuckGo"
+                  />
+                </View>
+              </View>
+          )
     });
 
   render() {
     return (
         <View>
-            <CustomSearchBar />
             <Card
               title='HELLO WORLD'>
               <Text style={{marginBottom: 10}}>

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, View, Text } from 'react-native';
+import { ScrollView, StyleSheet, View, Text, AsyncStorage } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import { List, ListItem } from 'react-native-elements';
-import CustomSearchBar from '../components/customSearchBar';
+import Search from 'react-native-search-box';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { AsyncStorage } from 'react-native';
 
 
 class SettingsScreen extends Component {
@@ -21,6 +20,21 @@ class SettingsScreen extends Component {
             />
 
       ),
+      header: (
+          <View style={{ backgroundColor: Colors.tintColor }}>
+            <View style={{ marginTop: 24 }} >
+              <Search
+                backgroundColor={Colors.tintColor}
+                tintColorSearch="purple"
+                color= 'black'
+                tintColorSearch={Colors.darkTintColor}
+                ref="search_box"
+                placeholder="Search DuckDuckGo"
+              />
+            </View>
+          </View>
+      )
+
   });
 
   async componentDidMount() {
@@ -44,9 +58,7 @@ class SettingsScreen extends Component {
 
   render() {
     return (
-      <View style={styles.settigsGreyBackground}>
-        <CustomSearchBar />
-          <ScrollView style={{ marginBottom: 42, paddingBottom: 10 }}>
+          <ScrollView style={styles.settigsGreyBackground}>
             <InfoText
                 text="General"
             / >
@@ -127,8 +139,6 @@ class SettingsScreen extends Component {
                 text="Version 0.1.1"
             / >
         </ScrollView>
-      </View>
-
     );
   }
 }
