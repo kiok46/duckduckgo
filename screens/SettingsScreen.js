@@ -56,10 +56,22 @@ class SettingsScreen extends Component {
       this.props.changeSaveRecentSetting();
   }
 
-  onDefaultTab = () => {
-      console.log("Default tab")
-      this.props.navigation.navigate('defaultTab');
+  onDefaultStorySetting = () => {
+      this.props.navigation.navigate('defaultStorySetting');
   }
+
+  onReadabilitySetting = () => {
+      this.props.navigation.navigate('readabilitySetting');
+  }
+
+  onRegionSetting = () => {
+      this.props.navigation.navigate('regionSetting');
+  }
+
+  onSourcesSetting = () => {
+      this.props.navigation.navigate('sourcesSetting');
+  }
+
 
   render() {
     return (
@@ -71,7 +83,7 @@ class SettingsScreen extends Component {
                 <ListItem
                     title='Home'
                     rightTitle="Stories (Default)"
-                    onPress={this.onDefaultTab}
+                    onPress={this.onDefaultStorySetting}
                 />
             </List>
             <InfoText
@@ -80,9 +92,11 @@ class SettingsScreen extends Component {
             <List>
                 <ListItem
                     title='Sources'
+                    onPress={this.onSourcesSetting}
                 />
                 <ListItem
                     title='Readability'
+                    onPress={this.onReadabilitySetting}
                 />
                 <ListItem
                     title='Quack on Refresh'
@@ -108,6 +122,7 @@ class SettingsScreen extends Component {
                 <ListItem
                     title='Region'
                     rightTitle="None (Default)"
+                    onPress={this.onRegionSetting}
                 />
             </List>
             <InfoText

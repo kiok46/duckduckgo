@@ -3,10 +3,10 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
 import Search from 'react-native-search-box';
-import { Button } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 
 
-class DefaultTab extends Component {
+class SourcesSetting extends Component {
     static navigationOptions = ({ navigation }) => ({
           tabBarLabel: 'History',
           tabBarIcon: ({ tintColor, focused }) => (
@@ -19,9 +19,14 @@ class DefaultTab extends Component {
           header: (
               <View style={{ backgroundColor: Colors.tintColor }}>
                 <View style={{ marginTop: 24 }} >
-				  <Button
-				    title= "|"
-					onPress={this.onBackPress}
+                <Icon
+                    name='sc-telegram'
+                    type='evilicon'
+                    color='#517fa4'
+					onPress={() => {
+                        navigation.goBack(null)
+                      }
+                    }
 				  />
                   <Search
                     backgroundColor={Colors.tintColor}
@@ -36,10 +41,6 @@ class DefaultTab extends Component {
           )
     });
 
-  onBackPress = () => {
-	  console.log("Getting called")
-	  this.props.navigation.navigate('settings');
-  }
 
   render() {
     return (
@@ -55,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DefaultTab;
+export default SourcesSetting;
