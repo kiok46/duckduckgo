@@ -13,6 +13,7 @@ import StoriesScreen from './screens/StoriesScreen';
 import FavouritesScreen from './screens/FavouritesScreen';
 import HistoryScreen from './screens/HistoryScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import DefaultTab from './screens/Settings/DefaultTab';
 
 // import Router from './navigation/Router';
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
@@ -71,6 +72,9 @@ class AppContainer extends React.Component {
                     tabBarPosition: 'bottom'
                 }),
             },
+          defaultTab: {
+              screen: DefaultTab
+          }
       })
 
       if (this.state.appIsReady){

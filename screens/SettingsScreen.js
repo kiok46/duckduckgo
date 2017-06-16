@@ -56,6 +56,11 @@ class SettingsScreen extends Component {
       this.props.changeSaveRecentSetting();
   }
 
+  onDefaultTab = () => {
+      console.log("Default tab")
+      this.props.navigation.navigate('defaultTab');
+  }
+
   render() {
     return (
           <ScrollView style={styles.settigsGreyBackground}>
@@ -66,6 +71,7 @@ class SettingsScreen extends Component {
                 <ListItem
                     title='Home'
                     rightTitle="Stories (Default)"
+                    onPress={this.onDefaultTab}
                 />
             </List>
             <InfoText
