@@ -30,13 +30,11 @@ class FavouritesScreen extends Component {
               </View>
           )
     });
-
-
   render() {
     return (
-        <View >
+        <View>
+          <Text>Favourites Settings</Text>
         </View>
-
     );
   }
 }
