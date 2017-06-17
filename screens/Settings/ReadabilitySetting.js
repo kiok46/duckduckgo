@@ -44,7 +44,7 @@ class RaedabilitySetting extends Component {
 
   render() {
     return (
-      <Text>FFFFF</Text>
+      <Text>Readability Settings</Text>
     );
   }
 }
