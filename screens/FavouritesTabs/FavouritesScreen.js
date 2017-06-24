@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, StyleSheet, TextInput, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import Search from 'react-native-search-box';
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 
 
 class FavouritesScreen extends Component {

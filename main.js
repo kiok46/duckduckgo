@@ -10,8 +10,8 @@ import Colors from './constants/Colors';
 
 import SearchScreen from './screens/SearchScreen';
 import StoriesScreen from './screens/StoriesScreen';
-import FavouritesScreen from './screens/FavouritesScreen';
-import HistoryScreen from './screens/HistoryScreen';
+import FavouritesScreen from './screens/FavouritesTabs/FavouritesScreen';
+import HistoryScreen from './screens/HistoryTabs/HistoryScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import DefaultStorySetting from './screens/Settings/DefaultStorySetting';
 import ReadabilitySetting from './screens/Settings/ReadabilitySetting';
@@ -92,12 +92,12 @@ class AppContainer extends React.Component {
 
       if (this.state.appIsReady){
           return (
-              <View
-                 style={{ flex:1 }}>
-                 <StatusBar barStyle="light-content" />
-                 <Provider store={store}>
-                   <MainNavigator />
-                 </Provider>
+            <View
+              style={{ flex:1 }}>
+              <StatusBar barStyle="light-content" />
+              <Provider store={store}>
+                 <MainNavigator />
+              </Provider>
             </View>
           );
       }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 import Search from 'react-native-search-box';
 
 
