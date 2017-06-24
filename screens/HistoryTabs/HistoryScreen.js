@@ -4,6 +4,8 @@ import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
 import Search from 'react-native-search-box';
 
+import RecentStories from './RecentStories';
+import RecentSearches from './RecentSearches';
 
 class HistoryScreen extends Component {
     static navigationOptions = ({ navigation }) => ({

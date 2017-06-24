@@ -72,7 +72,8 @@ class AppContainer extends React.Component {
                        activeTintColor: Colors.tintColor,
                     },
                     lazy: true,
-                    tabBarPosition: 'bottom'
+                    tabBarPosition: 'bottom',
+                    // initialRouteName: 'history'
                 }),
             },
           defaultStorySetting: {

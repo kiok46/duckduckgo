@@ -4,6 +4,8 @@ import { FontAwesome } from '@expo/vector-icons';
 import Search from 'react-native-search-box';
 import Colors from '../../constants/Colors';
 
+import FavouritesSearches from './FavouritesSearches';
+import FavouritesStories from './FavouritesStories';
 
 class FavouritesScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -34,6 +36,7 @@ class FavouritesScreen extends Component {
     return (
         <View>
           <Text>Favourites Settings</Text>
+          <FavouritesSearches/>
         </View>
     );
   }
