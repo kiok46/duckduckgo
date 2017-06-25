@@ -12,7 +12,7 @@ import Colors from './constants/Colors';
 import SearchScreen from './screens/SearchScreen';
 import StoriesScreen from './screens/StoriesScreen';
 import FavouritesScreen from './screens/FavouritesScreen';
-import HistoryScreen from './screens/HistoryTabs/HistoryScreen';
+import HistoryScreen from './screens/HistoryScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import DefaultStorySetting from './screens/Settings/DefaultStorySetting';
 import ReadabilitySetting from './screens/Settings/ReadabilitySetting';
@@ -74,7 +74,19 @@ class AppContainer extends React.Component {
                             ),
                           }
                      },
-                    history: { screen: HistoryScreen },
+                    history: {
+                        screen: HistoryScreen,
+                        navigationOptions: {
+                            tabBarLabel: 'History',
+                            tabBarIcon: ({ tintColor, focused }) => (
+                              <FontAwesome
+                                  name={'clock-o'}
+                                  size={24}
+                                  color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+                                />
+                            ),
+                        }
+                    },
                     settings: { screen: SettingsScreen },
                 },
                 {
