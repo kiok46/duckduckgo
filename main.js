@@ -1,16 +1,17 @@
 import Expo, { AppLoading } from 'expo';
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { SearchBar } from 'react-native-elements'
+import Search from 'react-native-search-box';
 import { Provider } from 'react-redux';
+import { FontAwesome } from '@expo/vector-icons';
 
 import Colors from './constants/Colors';
 
 import SearchScreen from './screens/SearchScreen';
 import StoriesScreen from './screens/StoriesScreen';
-import FavouritesScreen from './screens/FavouritesTabs/FavouritesScreen';
+import FavouritesScreen from './screens/FavouritesScreen';
 import HistoryScreen from './screens/HistoryTabs/HistoryScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import DefaultStorySetting from './screens/Settings/DefaultStorySetting';
@@ -52,9 +53,6 @@ class AppContainer extends React.Component {
     }
   }
 
-  onSearch = () => {
-
-  }
 
   render() {
 
@@ -63,7 +61,19 @@ class AppContainer extends React.Component {
                  screen: TabNavigator({
                     search: { screen: SearchScreen },
                     stories: { screen: StoriesScreen },
-                    favourites: { screen: FavouritesScreen },
+                    favourites: {
+                        screen: FavouritesScreen,
+                        navigationOptions: {
+                          tabBarLabel: 'Feed',
+                          tabBarIcon: ({ tintColor, focused }) => (
+                              <FontAwesome
+                                  name={'heart'}
+                                  size={24}
+                                  color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+                                />
+                            ),
+                          }
+                     },
                     history: { screen: HistoryScreen },
                     settings: { screen: SettingsScreen },
                 },
@@ -125,7 +135,7 @@ const styles = StyleSheet.create({
   },
   statusBarUnderlay: {
     height: 24,
-    backgroundColor: 'rgba(0,0,0,0.2)',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
   },
   statusHeight: {
       marginTop: 0
