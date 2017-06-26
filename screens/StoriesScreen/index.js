@@ -98,18 +98,6 @@ const styles = StyleSheet.create({
       marginRight: 25,
       paddingRight: 15,
       alignContent: 'center'
-  },
-  storyOverlay: {
-    flex: 1,
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    alignContent: 'space-around',
-    flexDirection: 'row'
-  },
-  storyOverlayStyle: {
-      opacity: 0.5,
-      backgroundColor: 'black',
   }
 
 });

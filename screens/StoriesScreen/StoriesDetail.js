@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, Image, Linking, StyleSheet } from 'react-native';
+import { Text, View, Image, Linking, StyleSheet, TouchableOpacity } from 'react-native';
+import { Button, Icon } from 'react-native-elements';
 import Card from '../../components/Card';
 import CardSection from '../../components/CardSection';
 
@@ -29,11 +30,23 @@ class StoriesDetail extends Component {
 							style={styles.headerTextStyle}
 							numberOfLines={2}
 						>
-						{this.props.story.title + "Lorem ac  Lorem Loremn Lorem Lorem Loremn Lorem Lorem Loremn"}
+						{"Album's name is "+ this.props.story.title}
 						</Text>
 					</View>
 				</CardSection>
-
+				<View style={styles.storyOverlay}>
+				    <TouchableOpacity style={styles.storyTypeStyle}>
+						<Text style={styles.storyTypeTextStyle}>
+						    LightHearted
+						</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={styles.storyTypeMenuStyle}>
+						<Icon
+							name='more-horiz'
+							color='#fff'
+						/>
+					</TouchableOpacity>
+				</View>
 			</Card>
 		);
 	}
@@ -45,7 +58,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-around'
 	},
 	headerTextStyle: {
-		fontSize: 12,
+		fontSize: 14,
         marginRight: 25,
         paddingRight: 25,
         alignContent: 'center'
@@ -63,6 +76,38 @@ const styles = StyleSheet.create({
 		height: 150,
 		flex: 1,
 		width: null
+	},
+    storyOverlay: {
+      flex: 1,
+	  marginTop: 10,
+	  height: 30,
+      position: 'absolute',
+      right: 0,
+      top: 0,
+	  justifyContent: 'space-around',
+      flexDirection: 'row',
+	  // opacity: 0.5,
+	  // backgroundColor: 'black',
+    },
+    storyTypeStyle: {
+		backgroundColor: 'black',
+		opacity: 0.6,
+		marginRight: 10,
+		borderRadius: 5,
+		padding: 3,
+		alignContent: 'center'
+	},
+	storyTypeTextStyle: {
+        color: 'white',
+		fontSize: 13,
+		paddingTop: 3
+	},
+	storyTypeMenuStyle: {
+		backgroundColor: 'black',
+		opacity: 0.6,
+		marginRight: 10,
+		borderRadius: 5,
+		padding: 3
 	}
 });
 
