@@ -95,7 +95,7 @@ class AppContainer extends React.Component {
                     },
                     lazy: true,
                     tabBarPosition: 'bottom',
-                    // initialRouteName: 'history'
+                    initialRouteName: 'stories'
                 }),
             },
           defaultStorySetting: {
