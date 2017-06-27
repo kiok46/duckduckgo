@@ -13,7 +13,7 @@ class StoriesDetail extends Component {
 	}
 	render () {
 		return (
-			<Card>
+			<Card marginBottomProp={10}>
 				<CardSection>
 					<Image
 						style={styles.imageStyle}
