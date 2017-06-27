@@ -8,7 +8,8 @@ class Card extends Component {
 	}
 	render (){
 		return (
-			<View style={styles.containerStyle}>
+
+			<View style={[styles.containerStyle, { marginBottom: this.props.marginBottomProp, backgroundColor: this.props.backgroundColorProp } ]}>
 				{this.props.children}
 			</View>
 		);
