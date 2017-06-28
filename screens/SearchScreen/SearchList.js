@@ -20,7 +20,7 @@ class SearchList extends Component {
 	}
 
 	async componentWillMount() {
-      AsyncStorage.clear()
+      // AsyncStorage.clear()
       await this.props.getSearchHistory(searchQuery="p");
     }
 

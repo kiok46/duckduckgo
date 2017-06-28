@@ -4,8 +4,15 @@ import Search from 'react-native-search-box';
 import Colors from '../../constants/Colors';
 import { Button } from 'react-native-elements'
 
+import SearchList from '../SearchScreen/SearchList';
+
 
 const MyNavScreen = ({ navigation, banner }) => (
+  /*
+  Use this component like this.
+  
+  <MyNavScreen banner="RecentStories Tab" navigation={this.props.navigation} />
+  */
   <ScrollView>
     <Text>{banner}</Text>
     <Button
@@ -44,7 +51,9 @@ class RecentStoriesTab extends Component {
 
     render () {
         return (
-            <MyNavScreen banner="RecentStories Tab" navigation={this.props.navigation} />
+            <View>
+                <SearchList/>
+            </View>
         );
     }
 }

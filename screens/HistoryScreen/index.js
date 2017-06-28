@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ScrollView, Platform, TouchableOpacity, StyleSheet, TextInput, Text, View } from 'react-native';
+import { ScrollView, Platform, TouchableOpacity, TouchableHighlight,
+    StyleSheet, TextInput, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Button } from 'react-native-elements'
 
@@ -24,16 +25,22 @@ class HistoryTabBar extends Component {
     }
     render () {
         return (
-            <View style={styles.tabContainer}>
-              {this.props.navigation.state.routes.map(route => (
-                <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate(route.routeName)}
-                  style={styles.tab}
-                  key={route.routeName}
-                >
-                  <Text>{route.routeName}</Text>
-                </TouchableOpacity>
-              ))}
+            <View style={{ backgroundColor: Colors.tintColor }}>
+                <View style={styles.tabContainer}>
+
+                  {this.props.navigation.state.routes.map(route => (
+
+                    <TouchableHighlight
+                      onPress={() => this.props.navigation.navigate(route.routeName)}
+                      style={[styles.tab, { backgroundColor: 'white'} ]}
+                      key={route.routeName}
+                    >
+                      <Text style={{ color: Colors.tintColor }}>{route.routeName}</Text>
+                    </TouchableHighlight>
+
+                  ))}
+                  
+                </View>
             </View>
         );
     }
@@ -66,7 +73,7 @@ const styles = StyleSheet.create({
   inputStyle: {
       height: 40,
       borderColor: 'gray',
-      borderWidth: 1,
+      borderWidth: 2,
       paddingRight: 5,
       paddingLeft: 5,
       fontSize: 18,
@@ -82,17 +89,20 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 4,
     borderWidth: 1,
+    backgroundColor: Colors.tintColor,
     borderColor: '#ddd',
-    borderRadius: 4,
+    borderRadius: 4
+
   },
   container: {
     marginTop: Platform.OS === 'ios' ? 20 : 0,
   },
   tabContainer: {
     flexDirection: 'row',
-    height: 48,
+    height: 30,
+    backgroundColor: Colors.tintColor,
+    margin: 5,
   }
 });
 

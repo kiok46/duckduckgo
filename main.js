@@ -14,10 +14,6 @@ import StoriesScreen from './screens/StoriesScreen';
 import FavouritesScreen from './screens/FavouritesScreen';
 import HistoryScreen from './screens/HistoryScreen';
 import SettingsScreen from './screens/SettingsScreen';
-import DefaultStorySetting from './screens/Settings/DefaultStorySetting';
-import ReadabilitySetting from './screens/Settings/ReadabilitySetting';
-import RegionSetting from './screens/Settings/RegionSetting';
-import SourcesSetting from './screens/Settings/SourcesSetting';
 
 // import Router from './navigation/Router';
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
@@ -87,7 +83,7 @@ class AppContainer extends React.Component {
                             ),
                         }
                     },
-                    settings: { screen: SettingsScreen },
+                    settings: { screen: SettingsScreen.SettingsScreen },
                 },
                 {
                     tabBarOptions: {
@@ -99,16 +95,16 @@ class AppContainer extends React.Component {
                 }),
             },
           defaultStorySetting: {
-              screen: DefaultStorySetting,
+              screen: SettingsScreen.DefaultStorySetting,
           },
           readabilitySetting: {
-              screen: ReadabilitySetting,
+              screen: SettingsScreen.ReadabilitySetting,
           },
           regionSetting: {
-              screen: RegionSetting
+              screen: SettingsScreen.RegionSetting,
           },
           sourcesSetting: {
-              screen: SourcesSetting
+              screen: SettingsScreen.SourcesSetting,
           }
 
       })
