@@ -6,18 +6,19 @@ import FavStoriesTab from './FavStoriesTab';
 
 const FavTabRouter = TabRouter(
   {
+    FavStories: {
+        screen: FavStoriesTab,
+        path: 'FavStories',
+    },
     FavSearches: {
       screen: FavSearchesTab,
-      path: '',
-    },
-    FavStories: {
-      screen: FavStoriesTab,
-      path: 'FavStories',
+      path: 'FavSearches',
     }
+
   },
   {
     // Change this to start on a different tab
-    initialRouteName: 'FavSearches',
+    initialRouteName: 'FavStories',
   }
 );
 
