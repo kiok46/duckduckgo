@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Platform, TouchableOpacity, StyleSheet, TextInput, Text, View } from 'react-native';
+import { ScrollView, Platform, TouchableOpacity, TouchableHighlight, StyleSheet, TextInput, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Button } from 'react-native-elements'
 
@@ -19,21 +19,59 @@ import FavTabRouter from './FavTabRouter';
 class FavTabBar extends Component {
     constructor(props) {
         super(props)
-        const { routes } = this.props.navigation.state
-        const navigation = this.props.navigation
+        this.state = {
+            searchTabOpen: true,
+            storiesTabOpen: false
+        }
     }
+
+    handleTabColors = (idx) => {
+        if (idx === 0){
+            if (this.state.searchTabOpen){
+                return 'white'
+            }
+            else {
+                return Colors.tintColor
+            }
+
+        } else {
+            if (this.state.storiesTabOpen){
+                return 'white'
+            }
+            else {
+                return Colors.tintColor
+            }
+        }
+    }
+
+
+    handleTabNavigation = (route, idx) => {
+        if (this.state.storiesTabOpen && idx === 0 || this.state.searchTabOpen && idx === 1){
+            this.setState({ searchTabOpen: !this.state.searchTabOpen,
+                            storiesTabOpen: !this.state.storiesTabOpen})
+            this.props.navigation.navigate(route.routeName)
+        }
+    }
+
+
     render () {
         return (
-            <View style={styles.tabContainer}>
-              {this.props.navigation.state.routes.map(route => (
-                <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate(route.routeName)}
-                  style={styles.tab}
-                  key={route.routeName}
-                >
-                  <Text>{route.routeName}</Text>
-                </TouchableOpacity>
-              ))}
+            <View style={{ backgroundColor: Colors.tintColor }}>
+                <View style={styles.tabContainer}>
+
+                  {this.props.navigation.state.routes.map((route, idx) => (
+
+                    <TouchableHighlight
+                      onPress={() => this.handleTabNavigation(route, idx)}
+                      style={[styles.tab, { backgroundColor: this.handleTabColors(idx)} ]}
+                      key={route.routeName}
+                    >
+                      <Text style={{ color: this.handleTabColors(idx === 1 ? 0: 1) }}>{route.routeName}</Text>
+                    </TouchableHighlight>
+
+                  ))}
+
+                </View>
             </View>
         );
     }
@@ -82,17 +120,24 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 4,
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 4,
+    // borderTopRightRadius: 1,
+    // borderBottomRightRadius: 1,
+    backgroundColor: Colors.tintColor,
+    borderColor: 'white',
+    borderRadius: 2
+  },
+  tabAlt: {
+    backgroundColor: 'white',
   },
   container: {
     marginTop: Platform.OS === 'ios' ? 20 : 0,
   },
   tabContainer: {
     flexDirection: 'row',
-    height: 48,
+    height: 30,
+    backgroundColor: Colors.tintColor,
+    margin: 5,
   }
 });
 

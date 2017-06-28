@@ -45,24 +45,6 @@ class HistoryTabBar extends Component {
         }
     }
 
-    handleTabTextColor = (idx) => {
-        if (idx === 0){
-            if (!this.state.searchTabOpen){
-                return 'white'
-            }
-            else {
-                return Colors.tintColor
-            }
-
-        } else {
-            if (!this.state.storiesTabOpen){
-                return 'white'
-            }
-            else {
-                return Colors.tintColor
-            }
-        }
-    }
 
     handleTabNavigation = (route, idx) => {
         if (this.state.storiesTabOpen && idx === 0 || this.state.searchTabOpen && idx === 1){
@@ -84,7 +66,7 @@ class HistoryTabBar extends Component {
                       style={[styles.tab, { backgroundColor: this.handleTabColors(idx)} ]}
                       key={route.routeName}
                     >
-                      <Text style={{ color: this.handleTabTextColor(idx) }}>{route.routeName}</Text>
+                      <Text style={{ color: this.handleTabColors(idx === 1 ? 0: 1) }}>{route.routeName}</Text>
                     </TouchableHighlight>
 
                   ))}
