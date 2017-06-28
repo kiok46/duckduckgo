@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, View, Text, AsyncStorage } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 import { List, ListItem } from 'react-native-elements';
 import Search from 'react-native-search-box';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 
 class SettingsScreen extends Component {
