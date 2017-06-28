@@ -6,18 +6,18 @@ import RecentStoriesTab from './RecentStoriesTab';
 
 const HistoryTabRouter = TabRouter(
   {
-    RecentSearches: {
-      screen: RecentSearchesTab,
-      path: '',
-    },
     RecentStories: {
       screen: RecentStoriesTab,
       path: 'RecentStories',
+    },
+    RecentSearches: {
+      screen: RecentSearchesTab,
+      path: 'RecentSearches',
     }
   },
   {
     // Change this to start on a different tab
-    initialRouteName: 'RecentSearches',
+    initialRouteName: 'RecentStories',
   }
 );
 

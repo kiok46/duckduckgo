@@ -20,26 +20,75 @@ import HistoryTabRouter from './HistoryTabRouter';
 class HistoryTabBar extends Component {
     constructor(props) {
         super(props)
-        const { routes } = this.props.navigation.state
-        const navigation = this.props.navigation
+        this.state = {
+            searchTabOpen: true,
+            storiesTabOpen: false
+        }
     }
+
+    handleTabColors = (idx) => {
+        if (idx === 0){
+            if (this.state.searchTabOpen){
+                return 'white'
+            }
+            else {
+                return Colors.tintColor
+            }
+
+        } else {
+            if (this.state.storiesTabOpen){
+                return 'white'
+            }
+            else {
+                return Colors.tintColor
+            }
+        }
+    }
+
+    handleTabTextColor = (idx) => {
+        if (idx === 0){
+            if (!this.state.searchTabOpen){
+                return 'white'
+            }
+            else {
+                return Colors.tintColor
+            }
+
+        } else {
+            if (!this.state.storiesTabOpen){
+                return 'white'
+            }
+            else {
+                return Colors.tintColor
+            }
+        }
+    }
+
+    handleTabNavigation = (route, idx) => {
+        if (this.state.storiesTabOpen && idx === 0 || this.state.searchTabOpen && idx === 1){
+            this.setState({ searchTabOpen: !this.state.searchTabOpen,
+                            storiesTabOpen: !this.state.storiesTabOpen})
+            this.props.navigation.navigate(route.routeName)
+        }
+    }
+
     render () {
         return (
             <View style={{ backgroundColor: Colors.tintColor }}>
                 <View style={styles.tabContainer}>
 
-                  {this.props.navigation.state.routes.map(route => (
+                  {this.props.navigation.state.routes.map((route, idx) => (
 
                     <TouchableHighlight
-                      onPress={() => this.props.navigation.navigate(route.routeName)}
-                      style={[styles.tab, { backgroundColor: 'white'} ]}
+                      onPress={() => this.handleTabNavigation(route, idx)}
+                      style={[styles.tab, { backgroundColor: this.handleTabColors(idx)} ]}
                       key={route.routeName}
                     >
-                      <Text style={{ color: Colors.tintColor }}>{route.routeName}</Text>
+                      <Text style={{ color: this.handleTabTextColor(idx) }}>{route.routeName}</Text>
                     </TouchableHighlight>
 
                   ))}
-                  
+
                 </View>
             </View>
         );
@@ -90,10 +139,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
+    // borderTopRightRadius: 1,
+    // borderBottomRightRadius: 1,
     backgroundColor: Colors.tintColor,
-    borderColor: '#ddd',
-    borderRadius: 4
-
+    borderColor: 'white',
+    borderRadius: 2
+  },
+  tabAlt: {
+    backgroundColor: 'white',
   },
   container: {
     marginTop: Platform.OS === 'ios' ? 20 : 0,
