@@ -16,24 +16,6 @@ import {
   MenuContext
 } from 'react-native-popup-menu';
 
-const users = [
- {
-    storyImage: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
-    infoText: 'The idea with ent structure than actual design. The idea with ent structure than actual design. The idea with ent structure than actual design.',
-    sourceIcon: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
- },
- {
-    storyImage: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
-    infoText: 'The idea with ent structure than actual design.',
-    sourceIcon: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
- },
- {
-    storyImage: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
-    infoText: 'The idea with ent structure than actual design.',
-    sourceIcon: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
- },
-]
-
 
 class StoriesScreen extends Component {
   static navigationOptions = ({ navigation }) => ({

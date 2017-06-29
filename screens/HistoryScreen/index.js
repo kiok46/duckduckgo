@@ -31,17 +31,13 @@ class HistoryTabBar extends Component {
             if (this.state.searchTabOpen){
                 return 'white'
             }
-            else {
-                return Colors.tintColor
-            }
+            return Colors.tintColor
 
         } else {
             if (this.state.storiesTabOpen){
                 return 'white'
             }
-            else {
-                return Colors.tintColor
-            }
+            return Colors.tintColor
         }
     }
 
