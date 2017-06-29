@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { Text, ScrollView, StyleSheet } from 'react-native';
+import { Text, TextInput, Dimensions, View, ScrollView, StyleSheet } from 'react-native';
 import StoriesDetail from './StoriesDetail';
 import axios from 'axios';
+import Colors from '../../constants/Colors';
+import { FontAwesome } from '@expo/vector-icons';
+
+
 
 class StoriesList extends Component {
 

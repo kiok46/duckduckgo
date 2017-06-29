@@ -5,6 +5,7 @@ import { Card, Button } from 'react-native-elements';
 import Search from 'react-native-search-box';
 import Colors from '../../constants/Colors';
 import SearchList from './SearchList';
+import SearchComponent from '../../components/SearchComponent';
 
 
 class SearchScreen extends Component {
@@ -19,16 +20,9 @@ class SearchScreen extends Component {
           ),
           header: (
               <View style={{ backgroundColor: Colors.tintColor }}>
-                <View style={{ marginTop: 24 }} >
-                  <Search
-                    backgroundColor={Colors.tintColor}
-                    tintColorSearch="purple"
-                    color= 'black'
-                    tintColorSearch={Colors.darkTintColor}
-                    ref="search_box"
-                    placeholder="Search DuckDuckGo"
-                  />
-                </View>
+                  <View style={{ marginTop: 24, height: 40 }} >
+                    <SearchComponent/>
+                  </View>
               </View>
           )
     });

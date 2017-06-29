@@ -6,6 +6,7 @@ import { List, ListItem } from 'react-native-elements';
 import Search from 'react-native-search-box';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import SearchComponent from '../../components/SearchComponent';
 
 
 class SettingsScreen extends Component {
@@ -22,16 +23,9 @@ class SettingsScreen extends Component {
       ),
       header: (
           <View style={{ backgroundColor: Colors.tintColor }}>
-            <View style={{ marginTop: 24 }} >
-              <Search
-                backgroundColor={Colors.tintColor}
-                tintColorSearch="purple"
-                color= 'black'
-                tintColorSearch={Colors.darkTintColor}
-                ref="search_box"
-                placeholder="Search DuckDuckGo"
-              />
-            </View>
+              <View style={{ marginTop: 24, height: 40 }} >
+                <SearchComponent/>
+              </View>
           </View>
       )
 
@@ -159,6 +153,9 @@ class SettingsScreen extends Component {
             <InfoText
                 text="Version 0.1.1"
             / >
+            <View
+                style={{ paddingBottom: 50 }}
+            />
         </ScrollView>
     );
   }
@@ -186,13 +183,14 @@ const styles = StyleSheet.create({
       height: 5,
   },
   infoTextStyle: {
-      paddingTop: 10,
+      paddingTop: 20,
       marginLeft: 20,
       color: "black",
       opacity: .7,
   },
   settigsGreyBackground: {
-      backgroundColor: 'rgba(247, 247, 247, 1)'
+      backgroundColor: 'rgba(247, 247, 247, 1)',
+      paddingTop: 20,
   }
 });
 
