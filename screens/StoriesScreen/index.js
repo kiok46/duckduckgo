@@ -7,7 +7,6 @@ import Colors from '../../constants/Colors';
 import { Icon } from 'react-native-elements'
 import StoriesList from './StoriesList';
 
-
 import {
   Menu,
   MenuOptions,
@@ -15,6 +14,8 @@ import {
   MenuTrigger,
   MenuContext
 } from 'react-native-popup-menu';
+
+import SearchComponent from '../../components/SearchComponent';
 
 
 class StoriesScreen extends Component {
@@ -29,15 +30,8 @@ class StoriesScreen extends Component {
         ),
         header: (
             <View style={{ backgroundColor: Colors.tintColor }}>
-              <View style={{ marginTop: 24 }} >
-                <Search
-                  backgroundColor={Colors.tintColor}
-                  tintColorSearch="purple"
-                  color= 'black'
-                  tintColorSearch={Colors.darkTintColor}
-                  ref="search_box"
-                  placeholder="Search DuckDuckGo"
-                />
+              <View style={{ marginTop: 24, height: 40 }} >
+                <SearchComponent/>
               </View>
             </View>
         )

@@ -5,6 +5,7 @@ import Colors from '../../constants/Colors';
 import { Button } from 'react-native-elements'
 
 import NoItemComponent from '../../components/NoItemComponent';
+import SearchComponent from '../../components/SearchComponent';
 
 
 const MyNavScreen = ({ navigation, banner }) => (
@@ -30,16 +31,9 @@ class FavStoriesTab extends Component {
     static navigationOptions = ({ router, navigation }) => ({
           header: (
               <View style={{ backgroundColor: Colors.tintColor }}>
-                <View style={{ marginTop: 24 }} >
-                  <Search
-                    backgroundColor={Colors.tintColor}
-                    tintColorSearch="purple"
-                    color= 'black'
-                    tintColorSearch={Colors.darkTintColor}
-                    ref="search_box"
-                    placeholder="Search DuckDuckGo"
-                  />
-                </View>
+                  <View style={{ marginTop: 24, height: 40 }} >
+                    <SearchComponent/>
+                  </View>
               </View>
           )
     });

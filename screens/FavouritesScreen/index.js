@@ -14,6 +14,7 @@ import Search from 'react-native-search-box';
 import Colors from '../../constants/Colors';
 
 import FavTabRouter from './FavTabRouter';
+import SearchComponent from '../../components/SearchComponent';
 
 
 class FavTabBar extends Component {
