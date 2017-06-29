@@ -4,6 +4,8 @@ import Search from 'react-native-search-box';
 import Colors from '../../constants/Colors';
 import { Button } from 'react-native-elements'
 
+import NoItemComponent from '../../components/NoItemComponent';
+
 
 const MyNavScreen = ({ navigation, banner }) => (
   <ScrollView>
@@ -44,7 +46,11 @@ class FavStoriesTab extends Component {
 
     render () {
         return (
-            <MyNavScreen banner="FavouritesStories Tab" navigation={this.props.navigation} />
+            <NoItemComponent
+              iconName='heart'
+              infoHeading="No Favourites"
+              infoParagraph="Add stories to your favouries, and they will be shown here."
+            />
         );
     }
 }
