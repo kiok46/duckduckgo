@@ -76,6 +76,7 @@ class SettingsScreen extends Component {
             <List>
                 <ListItem
                     title='Home'
+                    titleStyle={{ fontSize: 18 }}
                     rightTitle="Stories (Default)"
                     onPress={this.onDefaultStorySetting}
                 />
@@ -86,15 +87,18 @@ class SettingsScreen extends Component {
             <List>
                 <ListItem
                     title='Sources'
+                    titleStyle={{ fontSize: 18 }}
                     onPress={this.onSourcesSetting}
                 />
                 <ListItem
                     title='Readability'
+                    titleStyle={{ fontSize: 18 }}
                     onPress={this.onReadabilitySetting}
                 />
                 <ListItem
                     title='Quack on Refresh'
                     switchButton={true}
+                    titleStyle={{ fontSize: 18 }}
                     hideChevron
                     switchOnTintColor={Colors.tintColor}
                     switched={this.props.quack_on_refresh}
@@ -108,6 +112,7 @@ class SettingsScreen extends Component {
                 <ListItem
                     switchButton={true}
                     title='Autocomplete'
+                    titleStyle={{ fontSize: 18 }}
                     hideChevron
                     switchOnTintColor={Colors.tintColor}
                     switched={this.props.autocomplete}
@@ -116,6 +121,7 @@ class SettingsScreen extends Component {
                 <ListItem
                     title='Region'
                     rightTitle="None (Default)"
+                    titleStyle={{ fontSize: 18 }}
                     onPress={this.onRegionSetting}
                 />
             </List>
@@ -126,6 +132,7 @@ class SettingsScreen extends Component {
                 <ListItem
                     switchButton={true}
                     title='Save Recents'
+                    titleStyle={{ fontSize: 18 }}
                     hideChevron
                     switchOnTintColor={Colors.tintColor}
                     switched={this.props.save_recent}
@@ -134,6 +141,7 @@ class SettingsScreen extends Component {
                 <ListItem
                     title='Clear Recents'
                     hideChevron
+                    titleStyle={{ fontSize: 18 }}
                 />
             </List>
             <InfoText
@@ -142,12 +150,15 @@ class SettingsScreen extends Component {
             <List>
                 <ListItem
                     title='Send Feedback'
+                    titleStyle={{ fontSize: 18 }}
                 />
                 <ListItem
                     title='Share'
+                    titleStyle={{ fontSize: 18 }}
                 />
                 <ListItem
                     title='Leave a Rating'
+                    titleStyle={{ fontSize: 18 }}
                 />
             </List>
             <InfoText
@@ -183,6 +194,7 @@ const styles = StyleSheet.create({
       height: 5,
   },
   infoTextStyle: {
+      fontSize: 14,
       paddingTop: 20,
       marginLeft: 20,
       color: "black",
