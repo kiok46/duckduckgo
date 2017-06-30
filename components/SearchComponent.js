@@ -61,7 +61,7 @@ class SearchComponent extends Component {
 						autoCorrect={false}
 						placeholderTextColor='white'
 						keyboardType={'web-search'}
-						onFocus={this.showCancelButton.bind(this)}
+						onFocus={this.onSearchActive}
 						placeholder="Search DuckDuckGo"
 						style={[styles.customSearchTextInputStyle,]}
 					/>
