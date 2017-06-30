@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TextInput, TouchableOpacity, LayoutAnimation, View, Dimensions, StyleSheet } from 'react-native';
+import { Text, TextInput, TouchableOpacity, LayoutAnimation, View, Dimensions, StyleSheet, Keyboard } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import { Button } from 'react-native-elements';
@@ -21,8 +21,15 @@ class SearchComponent extends Component {
 		this.setState({ searching: true })
 	}
 
-	componentDidMount() {
-		this.refs.search_textinput_component.focus()
+	componentDidUpdate() {
+		if (this.state.searching) {
+			this.refs.search_textinput_component.focus()
+		}
+	}
+
+	pressCancelButton = () => {
+		this.setState({ searching: false })
+		Keyboard.dismiss()
 	}
 
 	showCancelButton() {
@@ -33,7 +40,7 @@ class SearchComponent extends Component {
 				  title="Cancel"
 				  fontSize={14}
 				  backgroundColor={Colors.tintColor}
-				  onPress={() => {this.setState({ searching: false })}}
+				  onPress={this.pressCancelButton}
 				/>
 			);
 		}
@@ -47,7 +54,10 @@ class SearchComponent extends Component {
 			    style={{ elevation: 4 }}
 			  	onPress={this.onSearchActive}
 			  >
-			    <View style={styles.touchableSearch}>
+			    <View
+				  ref="touchable_search"
+				  style={styles.touchableSearch}>
+
 				  <View style={[styles.insideTouchableView, this.state.searching && styles.altTouchableView]}>
 				    <View style={{ backgroundColor: Colors.darkTintColor}}>
 						<FontAwesome
@@ -97,13 +107,11 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	altTouchableView:{
-		width: 275,
-	},
-	altSearchTextInput: {
-		width: 150,
+		width: Dimensions.get('window').width*(.7) -25,
 	},
 	customSearchTextInputStyle:{
 		height: 24,
+		alignSelf: 'stretch',
 		width: 150,
 		fontSize: 14,
 		marginLeft: 7,
