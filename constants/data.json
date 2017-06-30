@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Crunch Report",
+		"description": "Your daily roundup of the biggest TechCrunch stories and startup news.",
+		"url": "https://techcrunch.com/video/crunchreport/",
+		"urlToImage": "https://tctechcrunch2011.files.wordpress.com/2015/03/tccrshowogo.jpg?w=500&h=200&crop=1",
+	},
+	{
+		"title": "macOS High Sierra’s best features are the ones you don’t see",
+		"description": "The new operating system isn't rife with shiny new features, but it brings enhancements under the hood designed to speed up devices. More importantly, they..",
+		"url": "https://techcrunch.com/2017/06/29/macos-high-sierras-best-features-are-the-ones-you-dont-see/",
+		"urlToImage": "https://tctechcrunch2011.files.wordpress.com/2017/06/high-sierra.jpg?w=764&h=400&crop=1",
+	},
+	{
+		"title": "Blue Apron IPO off to a rough start",
+		"description": "Meal delivery business Blue Apron opened for trading at $10 per share on Thursday, significantly below the originally proposed range of $15 to $17. It's also..",
+		"url": "https://techcrunch.com/2017/06/29/blue-apron-ipo-off-to-a-rough-start/",
+		"urlToImage": "https://tctechcrunch2011.files.wordpress.com/2017/06/gettyimages-803370804.jpg?w=764&h=400&crop=1",
+	},
+	{
+		"title": "Microsoft confirms Cloudyn acquisition, sources say price is between $50M and $70M",
+		"description": "Back in April, we began hearing that Microsoft was in the process of buying Israeli cloud startup Cloudyn, a company that helps customers manage their cloud..",
+		"url": "https://techcrunch.com/2017/06/29/microsoft-finally-pulls-trigger-on-cloudyn-deal/",
+		"urlToImage": "https://tctechcrunch2011.files.wordpress.com/2016/11/microsoft-nadella.png?w=764&h=400&crop=1",
+	},
+	{
+		"title": "Uber ATG upgrades its autonomous truck test fleet with new tech",
+		"description": "Uber's Advanced Technologies Group has a new version of its testing transport truck for autonomous tech. The new model features an updated technology stack,..",
+		"url": "https://techcrunch.com/2017/06/29/uber-atg-upgrades-its-autonomous-truck-test-fleet-with-new-tech/",
+		"urlToImage": "https://tctechcrunch2011.files.wordpress.com/2017/06/11.jpg?w=764&h=400&crop=1",
+	}
+]

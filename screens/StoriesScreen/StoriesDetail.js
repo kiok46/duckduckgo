@@ -9,28 +9,30 @@ class StoriesDetail extends Component {
 
 	constructor(props) {
 		super(props);
-		const { title, artist, thumbnail_image } = props.story;
+
 	}
 	render () {
+		const { StoryImage, StoryAbstractURL, StoryHeading } = this.props;
+
 		return (
 			<Card marginBottomProp={10}>
 				<CardSection>
 					<Image
 						style={styles.imageStyle}
-						source={{ uri: this.props.story.image }}/>
+						source={{ uri: StoryImage }}/>
 				</CardSection>
 				<CardSection>
 					<View style={styles.thumbnailContainerStyle}>
 						<Image
 						 	style={styles.thumbnailStyle}
-							source={{ uri: this.props.story.thumbnail_image }}/>
+							source={{ uri: this.props.StoryImage }}/>
 					</View>
 					<View style={styles.headerContentStyle}>
 						<Text
 							style={styles.headerTextStyle}
 							numberOfLines={2}
 						>
-						{"Album's name is "+ this.props.story.title}
+						{StoryHeading}
 						</Text>
 					</View>
 				</CardSection>

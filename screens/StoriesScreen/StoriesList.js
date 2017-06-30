@@ -5,6 +5,7 @@ import axios from 'axios';
 import Colors from '../../constants/Colors';
 import { FontAwesome } from '@expo/vector-icons';
 
+import storyData from '../../constants/data';
 
 
 class StoriesList extends Component {
@@ -15,12 +16,22 @@ class StoriesList extends Component {
 	}
 
 	componentWillMount(){
-		axios.get("https://rallycoding.herokuapp.com/api/music_albums")
-			.then(response => this.setState({ stories: response.data}));
+		//axios.get("http://api.duckduckgo.com/?q=googl&format=json")
+		//	.then(response => this.setState({ stories: response.data}));
+	}
+
+	getStoryData(story) {
+		return (
+			<StoriesDetail key={story.title}
+						   StoryImage={story.urlToImage}
+						   StoryAbstractURL={story.url}
+						   StoryHeading={story.title}
+				  />
+			);
 	}
 
 	renderStories() {
-		return this.state.stories.map(story => <StoriesDetail key={story.title} story={story} />);
+		return (storyData.map(this.getStoryData));
 	}
 
 	render () {
