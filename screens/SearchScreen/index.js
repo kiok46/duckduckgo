@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, View, StyleSheet, Text, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { Card, Button } from 'react-native-elements';
+import { Card, Button, Icon } from 'react-native-elements';
 import Search from 'react-native-search-box';
 import Colors from '../../constants/Colors';
 import SearchList from './SearchList';
@@ -14,7 +14,7 @@ class SearchScreen extends Component {
         return {
           tabBarLabel: 'Search',
           tabBarIcon: ({ tintColor, focused }) => (
-              <FontAwesome
+              <Icon
                   name={'search'}
                   size={24}
                   color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}

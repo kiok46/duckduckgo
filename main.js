@@ -2,7 +2,7 @@ import Expo, { AppLoading } from 'expo';
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
-import { SearchBar } from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 import Search from 'react-native-search-box';
 import { Provider } from 'react-redux';
 import { FontAwesome } from '@expo/vector-icons';
@@ -62,8 +62,8 @@ class AppContainer extends React.Component {
                         navigationOptions: {
                           tabBarLabel: 'Favourites',
                           tabBarIcon: ({ tintColor, focused }) => (
-                              <FontAwesome
-                                  name={'heart'}
+                              <Icon
+                                  name={'favorite'}
                                   size={24}
                                   color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
                                 />
@@ -75,8 +75,8 @@ class AppContainer extends React.Component {
                         navigationOptions: {
                             tabBarLabel: 'History',
                             tabBarIcon: ({ tintColor, focused }) => (
-                              <FontAwesome
-                                  name={'clock-o'}
+                                <Icon
+                                  name={'watch-later'}
                                   size={24}
                                   color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
                                 />
