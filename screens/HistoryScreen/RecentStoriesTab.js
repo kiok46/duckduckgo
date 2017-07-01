@@ -33,15 +33,20 @@ class RecentStoriesTab extends Component {
         super(props)
     }
 
-    static navigationOptions = ({ router, navigation }) => ({
+    static navigationOptions = ({ router, navigation }) => {
+
+        return {
           header: (
               <View style={{ backgroundColor: Colors.tintColor }}>
                   <View style={{ marginTop: 24, height: 40 }} >
-                    <SearchComponent/>
+                  <SearchComponent
+                      navigation={navigation}
+                  />
                   </View>
               </View>
           )
-    });
+       }
+    };
 
     render () {
         return (

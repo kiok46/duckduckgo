@@ -9,7 +9,9 @@ import SearchComponent from '../../components/SearchComponent';
 
 
 class SearchScreen extends Component {
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = ({ navigation }) => {
+
+        return {
           tabBarLabel: 'Search',
           tabBarIcon: ({ tintColor, focused }) => (
               <FontAwesome
@@ -21,11 +23,14 @@ class SearchScreen extends Component {
           header: (
               <View style={{ backgroundColor: Colors.tintColor }}>
                   <View style={{ marginTop: 24, height: 40 }} >
-                    <SearchComponent/>
+                      <SearchComponent
+                          navigation={navigation}
+                      />
                   </View>
               </View>
           )
-    });
+      }
+    };
 
   render() {
     return (

@@ -11,25 +11,30 @@ import SearchComponent from '../../components/SearchComponent';
 
 class SettingsScreen extends Component {
 
-  static navigationOptions = ({ navigation }) => ({
-      tabBarLabel: 'Settings',
-      tabBarIcon: ({ tintColor, focused }) => (
-          <FontAwesome
-              name={'cog'}
-              size={24}
-              color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-            />
+    static navigationOptions = ({ navigation }) => {
 
-      ),
-      header: (
-          <View style={{ backgroundColor: Colors.tintColor }}>
-              <View style={{ marginTop: 24, height: 40 }} >
-                <SearchComponent/>
+      return {
+          tabBarLabel: 'Settings',
+          tabBarIcon: ({ tintColor, focused }) => (
+              <FontAwesome
+                  name={'cog'}
+                  size={24}
+                  color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+                />
+
+          ),
+          header: (
+              <View style={{ backgroundColor: Colors.tintColor }}>
+                  <View style={{ marginTop: 24, height: 40 }} >
+                  <SearchComponent
+                      navigation={navigation}
+                  />
+                  </View>
               </View>
-          </View>
-      )
+          )
+      }
 
-  });
+  };
 
   async componentDidMount() {
     // AsyncStorage.clear()

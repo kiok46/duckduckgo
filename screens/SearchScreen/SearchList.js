@@ -10,6 +10,7 @@ import * as actions from '../../actions';
 
 var { height, width } = Dimensions.get('window');
 
+
 class SearchList extends Component {
 
 	constructor(props) {
@@ -83,9 +84,9 @@ const styles = StyleSheet.create({
 	searchListItemTextStyle: {
         paddingTop: 5,
 		fontSize: 13,
-		marginLeft: 30,
-		marginRight: 30,
-		width: 275,
+		marginLeft: 15,
+		marginRight: 15,
+		width: Dimensions.get('window').width*(.7) -25,
 	}
 });
 

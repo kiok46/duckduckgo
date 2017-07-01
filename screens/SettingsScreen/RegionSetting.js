@@ -8,32 +8,28 @@ import SearchComponent from '../../components/SearchComponent';
 
 
 class RegionSetting extends Component {
-    static navigationOptions = ({ navigation }) => ({
-          tabBarLabel: 'History',
-          tabBarIcon: ({ tintColor, focused }) => (
-              <FontAwesome
-                  name={'clock-o'}
-                  size={24}
-                  color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-                />
-          ),
+    static navigationOptions = ({ navigation }) => {
+        return {
           header: (
               <View style={{ backgroundColor: Colors.tintColor }}>
-                  <View style={{ marginTop: 24, height: 40, flexDirection: "row"}} >
-                      <Icon
-                          name='sc-telegram'
-                          type='evilicon'
-                          color='#517fa4'
-                          onPress={() => {
-                              navigation.goBack(null)
-                            }
+                <View style={{ marginTop: 24, height: 40, flexDirection: "row"}} >
+                    <Icon
+                        name='sc-telegram'
+                        type='evilicon'
+                        color='#517fa4'
+    					onPress={() => {
+                            navigation.goBack(null)
                           }
-                        />
-                      <SearchComponent/>
-                  </View>
+                        }
+    				  />
+                      <SearchComponent
+                          navigation={navigation}
+                      />
+                </View>
               </View>
           )
-    });
+      }
+    };
 
 
   render() {
