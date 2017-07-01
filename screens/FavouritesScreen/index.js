@@ -50,6 +50,13 @@ class FavTabBar extends Component {
         }
     }
 
+    tabName = (idx) => {
+        if (idx === 0){
+            return 'Favourites Stories'
+        }
+        return 'Favourites Searches'
+    }
+
     render () {
         return (
             <View style={{ backgroundColor: Colors.tintColor }}>
@@ -62,7 +69,7 @@ class FavTabBar extends Component {
                       style={[styles.tab, { backgroundColor: this.handleTabColors(idx)} ]}
                       key={route.routeName}
                     >
-                      <Text style={{ color: this.handleTabColors(idx === 1 ? 0: 1) }}>{route.routeName}</Text>
+                      <Text style={{ color: this.handleTabColors(idx === 1 ? 0: 1) }}>{this.tabName(idx)}</Text>
                     </TouchableHighlight>
 
                   ))}
