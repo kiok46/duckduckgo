@@ -49,6 +49,13 @@ class HistoryTabBar extends Component {
         }
     }
 
+    tabName = (idx) => {
+        if (idx === 0){
+            return 'Recent Stories'
+        }
+        return 'Recent Searches'
+    }
+
     render () {
         return (
             <View style={{ backgroundColor: Colors.tintColor }}>
@@ -61,7 +68,7 @@ class HistoryTabBar extends Component {
                       style={[styles.tab, { backgroundColor: this.handleTabColors(idx)} ]}
                       key={route.routeName}
                     >
-                      <Text style={{ color: this.handleTabColors(idx === 1 ? 0: 1) }}>{route.routeName}</Text>
+                      <Text style={{ color: this.handleTabColors(idx === 1 ? 0: 1) }}>{this.tabName(idx)}</Text>
                     </TouchableHighlight>
 
                   ))}
