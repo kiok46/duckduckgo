@@ -35,6 +35,7 @@ class FavSearchesTab extends Component {
                   <View style={{ marginTop: 24, height: 40 }} >
                   <SearchComponent
                       navigation={navigation}
+                      navOnCancel={'favourites'}
                   />
                   </View>
               </View>

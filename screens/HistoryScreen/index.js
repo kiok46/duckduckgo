@@ -16,25 +16,24 @@ import Colors from '../../constants/Colors';
 
 import HistoryTabRouter from './HistoryTabRouter';
 
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+
 
 class HistoryTabBar extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            searchTabOpen: true,
-            storiesTabOpen: false
-        }
     }
 
     handleTabColors = (idx) => {
         if (idx === 0){
-            if (this.state.searchTabOpen){
+            if (this.props.searchTabOpen){
                 return 'white'
             }
             return Colors.tintColor
 
         } else {
-            if (this.state.storiesTabOpen){
+            if (this.props.storiesTabOpen){
                 return 'white'
             }
             return Colors.tintColor
@@ -43,9 +42,9 @@ class HistoryTabBar extends Component {
 
 
     handleTabNavigation = (route, idx) => {
-        if (this.state.storiesTabOpen && idx === 0 || this.state.searchTabOpen && idx === 1){
-            this.setState({ searchTabOpen: !this.state.searchTabOpen,
-                            storiesTabOpen: !this.state.storiesTabOpen})
+        if (this.props.storiesTabOpen && idx === 0 || this.props.searchTabOpen && idx === 1){
+            this.props.toggleHistorySearchTab(!this.props.searchTabOpen)
+            this.props.toggleHistoryStoriesTab(!this.props.storiesTabOpen)
             this.props.navigation.navigate(route.routeName)
         }
     }
@@ -73,13 +72,22 @@ class HistoryTabBar extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        searchTabOpen: state.HistoryReducer.searchTabOpen,
+        storiesTabOpen: state.HistoryReducer.storiesTabOpen,
+    }
+}
+
+const HistoryTabBarRedux = connect(mapStateToProps, actions)(HistoryTabBar);
+
 
 const HistoryTabView = ({ router, navigation }) => {
   const { routes, index } = navigation.state;
   const ActiveScreen = router.getComponentForState(navigation.state);
   return (
     <View >
-      <HistoryTabBar navigation={navigation} />
+      <HistoryTabBarRedux navigation={navigation} />
       <ActiveScreen
         navigation={addNavigationHelpers({
           ...navigation,

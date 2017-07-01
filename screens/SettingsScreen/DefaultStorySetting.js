@@ -21,15 +21,15 @@ class DefaultStorySetting extends Component {
           header: (
               <View style={{ backgroundColor: Colors.tintColor }}>
                 <View style={{ marginTop: 24, height: 40, flexDirection: "row"}} >
-                    <Icon
-                        name='sc-telegram'
-                        type='evilicon'
-                        color='#517fa4'
-    					onPress={() => {
+                    <FontAwesome
+                        name={'cog'}
+                        size={24}
+                        color={'white'}
+                        onPress={() => {
                             navigation.goBack(null)
                           }
                         }
-    				  />
+                      />
                       <SearchComponent
                           navigation={navigation}
                           searchActiveAction={() => searchActiveAction}
