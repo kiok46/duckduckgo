@@ -60,7 +60,7 @@ class AppContainer extends React.Component {
                     favourites: {
                         screen: FavouritesScreen,
                         navigationOptions: {
-                          tabBarLabel: 'Feed',
+                          tabBarLabel: 'Favourites',
                           tabBarIcon: ({ tintColor, focused }) => (
                               <FontAwesome
                                   name={'heart'}

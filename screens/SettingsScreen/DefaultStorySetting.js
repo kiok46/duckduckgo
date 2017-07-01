@@ -8,15 +8,16 @@ import SearchComponent from '../../components/SearchComponent';
 
 
 class DefaultStorySetting extends Component {
-    static navigationOptions = ({ navigation }) => ({
-          tabBarLabel: 'History',
-          tabBarIcon: ({ tintColor, focused }) => (
-              <FontAwesome
-                  name={'clock-o'}
-                  size={24}
-                  color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-                />
-          ),
+    static navigationOptions = ({ navigation }) => {
+        searchActiveAction = () => {
+            navigation.navigate('search')
+        };
+
+        searchCancelAction = () => {
+            navigation.goBack(null);
+        };
+
+        return {
           header: (
               <View style={{ backgroundColor: Colors.tintColor }}>
                 <View style={{ marginTop: 24, height: 40, flexDirection: "row"}} >
@@ -29,11 +30,16 @@ class DefaultStorySetting extends Component {
                           }
                         }
     				  />
-                    <SearchComponent/>
+                      <SearchComponent
+                          navigation={navigation}
+                          searchActiveAction={() => searchActiveAction}
+                          searchCancelAction={() => searchCancelAction}
+                      />
                 </View>
               </View>
           )
-    });
+      }
+    };
 
 
   render() {

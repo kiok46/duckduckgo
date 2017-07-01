@@ -4,13 +4,13 @@ import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import { Button } from 'react-native-elements';
 
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+
 
 class SearchComponent extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			searching: false
-		}
 	}
 
 	componentWillUpdate() {
@@ -18,26 +18,24 @@ class SearchComponent extends Component {
 	}
 
 	onSearchActive = () => {
-		this.setState({ searching: true })
-		this.props.searchActiveAction()
+		this.props.Searching(isSearching = true)
+		this.props.navigation.navigate('search');
 	}
 
 	componentDidUpdate() {
-		if (this.state.searching) {
+		if (this.props.is_searching) {
 			this.refs.search_textinput_component.focus()
 		}
 	}
 
 	pressCancelButton = () => {
-		this.setState({ searching: false })
+		this.props.Searching(isSearching = false)
 		Keyboard.dismiss()
-		console.log("inside pressCancelButton method")
-		console.log(this.props)
-		this.props.searchCancelAction()
+		this.props.navigation.goBack(null);
 	}
 
 	showCancelButton = () => {
-		if (this.state.searching) {
+		if (this.props.is_searching) {
 			return (
 				<Button
 				  title="Cancel"
@@ -61,7 +59,7 @@ class SearchComponent extends Component {
 				  ref="touchable_search"
 				  style={styles.touchableSearch}>
 
-				  <View style={[styles.insideTouchableView, this.state.searching && styles.altTouchableView]}>
+				  <View style={[styles.insideTouchableView, this.props.is_searching && styles.altTouchableView]}>
 				    <View style={{ backgroundColor: Colors.darkTintColor}}>
 						<FontAwesome
 							name={'search'}
@@ -122,4 +120,12 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default SearchComponent;
+
+const mapStateToProps = (state) => {
+	return {
+		is_searching: state.SearchReducer.is_searching,
+	}
+}
+
+
+export default connect(mapStateToProps, actions)(SearchComponent);

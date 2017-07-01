@@ -21,14 +21,6 @@ import SearchComponent from '../../components/SearchComponent';
 class StoriesScreen extends Component {
 
   static navigationOptions = ({ navigation }) => {
-      searchActiveAction = () => {
-          console.log("inside index.js")
-          navigation.navigate('search')
-      };
-
-      searchCancelAction = () => {
-          navigation.goBack(null);
-      };
 
       return {
         tabBarLabel: 'Stories',
@@ -43,8 +35,7 @@ class StoriesScreen extends Component {
             <View style={{ backgroundColor: Colors.tintColor }}>
               <View style={{ marginTop: 24, height: 40 }} >
                 <SearchComponent
-                    searchActiveAction={() => searchActiveAction}
-                    searchCancelAction={() => searchCancelAction}
+                    navigation={navigation}
                 />
               </View>
             </View>
