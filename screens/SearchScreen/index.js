@@ -12,7 +12,7 @@ class SearchScreen extends Component {
     static navigationOptions = ({ navigation }) => {
 
         return {
-          tabBarLabel: 'Search',
+          tabBarLabel: "",
           tabBarIcon: ({ tintColor, focused }) => (
               <FontAwesome
                   name={'search'}

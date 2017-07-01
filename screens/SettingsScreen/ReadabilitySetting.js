@@ -17,6 +17,7 @@ class RaedabilitySetting extends Component {
                         name={'cog'}
                         size={24}
                         color={'white'}
+                        style= {{ paddingTop: 5, paddingLeft: 3 }}
                         onPress={() => {
                             navigation.goBack(null)
                           }
