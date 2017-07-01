@@ -19,6 +19,7 @@ class SearchComponent extends Component {
 
 	onSearchActive = () => {
 		this.props.Searching(isSearching = true)
+		console.log(this.props);
 		this.props.navigation.navigate('search');
 	}
 

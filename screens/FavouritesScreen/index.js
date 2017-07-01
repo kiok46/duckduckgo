@@ -14,21 +14,18 @@ import Search from 'react-native-search-box';
 import Colors from '../../constants/Colors';
 
 import FavTabRouter from './FavTabRouter';
-import SearchComponent from '../../components/SearchComponent';
 
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 class FavTabBar extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            searchTabOpen: true,
-            storiesTabOpen: false
-        }
     }
 
     handleTabColors = (idx) => {
         if (idx === 0){
-            if (this.state.searchTabOpen){
+            if (this.props.searchTabOpen){
                 return 'white'
             }
             else {
@@ -36,7 +33,7 @@ class FavTabBar extends Component {
             }
 
         } else {
-            if (this.state.storiesTabOpen){
+            if (this.props.storiesTabOpen){
                 return 'white'
             }
             else {
@@ -45,15 +42,13 @@ class FavTabBar extends Component {
         }
     }
 
-
     handleTabNavigation = (route, idx) => {
-        if (this.state.storiesTabOpen && idx === 0 || this.state.searchTabOpen && idx === 1){
-            this.setState({ searchTabOpen: !this.state.searchTabOpen,
-                            storiesTabOpen: !this.state.storiesTabOpen})
+        if (this.props.storiesTabOpen && idx === 0 || this.props.searchTabOpen && idx === 1){
+            this.props.toggleFavouritesSearchTab(!this.props.searchTabOpen)
+            this.props.toggleFavouritesStoriesTab(!this.props.storiesTabOpen)
             this.props.navigation.navigate(route.routeName)
         }
     }
-
 
     render () {
         return (
@@ -78,13 +73,22 @@ class FavTabBar extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        searchTabOpen: state.FavouritesReducer.searchTabOpen,
+        storiesTabOpen: state.FavouritesReducer.storiesTabOpen,
+    }
+}
+
+const FavTabBarRedux = connect(mapStateToProps, actions)(FavTabBar);
+
 
 const FavTabView = ({ router, navigation }) => {
   const { routes, index } = navigation.state;
   const ActiveScreen = router.getComponentForState(navigation.state);
   return (
     <View >
-      <FavTabBar navigation={navigation} />
+      <FavTabBarRedux navigation={navigation} />
       <ActiveScreen
         navigation={addNavigationHelpers({
           ...navigation,
