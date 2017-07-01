@@ -19,6 +19,7 @@ class SearchComponent extends Component {
 
 	onSearchActive = () => {
 		this.setState({ searching: true })
+		this.props.searchActiveAction()
 	}
 
 	componentDidUpdate() {
@@ -30,17 +31,19 @@ class SearchComponent extends Component {
 	pressCancelButton = () => {
 		this.setState({ searching: false })
 		Keyboard.dismiss()
+		console.log("inside pressCancelButton method")
+		console.log(this.props)
+		this.props.searchCancelAction()
 	}
 
-	showCancelButton() {
+	showCancelButton = () => {
 		if (this.state.searching) {
-
 			return (
 				<Button
 				  title="Cancel"
 				  fontSize={14}
 				  backgroundColor={Colors.tintColor}
-				  onPress={this.pressCancelButton}
+				  onPress={this.pressCancelButton.bind(this)}
 				/>
 			);
 		}
@@ -52,7 +55,7 @@ class SearchComponent extends Component {
 			<View style={styles.SearchContainer}>
 			  <TouchableOpacity
 			    style={{ elevation: 4 }}
-			  	onPress={this.onSearchActive}
+			  	onPress={this.onSearchActive.bind(this)}
 			  >
 			    <View
 				  ref="touchable_search"
@@ -71,7 +74,7 @@ class SearchComponent extends Component {
 						autoCorrect={false}
 						placeholderTextColor='white'
 						keyboardType={'web-search'}
-						onFocus={this.onSearchActive}
+						onFocus={this.onSearchActive.bind(this)}
 						placeholder="Search DuckDuckGo"
 						style={[styles.customSearchTextInputStyle,]}
 					/>
