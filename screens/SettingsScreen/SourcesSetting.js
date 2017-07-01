@@ -17,6 +17,7 @@ class SourcesSetting extends Component {
                     <FontAwesome
                         name={'cog'}
                         size={24}
+                        style= {{ paddingTop: 5, paddingLeft: 3 }}
                         color={'white'}
                         onPress={() => {
                             navigation.goBack(null)

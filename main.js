@@ -88,6 +88,7 @@ class AppContainer extends React.Component {
                 {
                     tabBarOptions: {
                        activeTintColor: Colors.tintColor,
+                       showLabel: false
                     },
                     lazy: true,
                     tabBarPosition: 'bottom',
