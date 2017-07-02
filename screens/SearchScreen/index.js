@@ -36,7 +36,9 @@ class SearchScreen extends Component {
   render() {
     return (
         <View>
-            <SearchList/>
+            <SearchList
+                navigation={this.props.navigation}
+            />
         </View>
 
     );

@@ -19,7 +19,6 @@ class SearchComponent extends Component {
 
 	onSearchActive = () => {
 		this.props.Searching(isSearching = true)
-		console.log(this.props);
 		this.props.navigation.navigate('search');
 	}
 
@@ -33,6 +32,7 @@ class SearchComponent extends Component {
 		this.props.Searching(isSearching = false)
 		Keyboard.dismiss()
 		this.props.navigation.goBack(null);
+		this.props.changeSearchText(search="")
 	}
 
 	showCancelButton = () => {
@@ -47,6 +47,17 @@ class SearchComponent extends Component {
 			);
 		}
 
+	}
+
+	onSubmitEditingSearch = () => {
+		this.props.storeSearchQuery(searchQuery=this.props.search_text)
+		this.props.changeSearchText(search="")
+		this.props.navigation.navigate('stories');
+		this.pressCancelButton()
+	}
+
+	onSearchTextChange = (text) => {
+		this.props.changeSearchText(text)
 	}
 
 	render (){
@@ -72,6 +83,9 @@ class SearchComponent extends Component {
 					    ref="search_textinput_component"
 						autoCorrect={false}
 						placeholderTextColor='white'
+						value={this.props.search_text}
+						onChangeText={(text) => this.onSearchTextChange(text)}
+						onSubmitEditing={this.onSubmitEditingSearch}
 						keyboardType={'web-search'}
 						onFocus={this.onSearchActive.bind(this)}
 						placeholder="Search DuckDuckGo"
@@ -125,6 +139,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
 	return {
 		is_searching: state.SearchReducer.is_searching,
+		search_text: state.SearchReducer.search_text
 	}
 }
 

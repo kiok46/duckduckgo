@@ -5,6 +5,7 @@ export const SAVE_RECENT_SETTING = 'save_recent_setting';
 
 export const LOAD_SEARCH_HISTORY_ITEMS = 'load_search_history_items';
 export const SEARCHING = 'searching';
+export const CHANGE_SEARCH_TEXT = 'change_search_text';
 
 export const TOGGLE_HISTORY_SEARCH_TAB = 'toggle_history_search_tab';
 export const TOGGLE_HISTORY_STORIES_TAB = 'toggle_history_stories_tab';

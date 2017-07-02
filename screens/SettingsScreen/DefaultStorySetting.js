@@ -9,13 +9,6 @@ import SearchComponent from '../../components/SearchComponent';
 
 class DefaultStorySetting extends Component {
     static navigationOptions = ({ navigation }) => {
-        searchActiveAction = () => {
-            navigation.navigate('search')
-        };
-
-        searchCancelAction = () => {
-            navigation.goBack(null);
-        };
 
         return {
           header: (
@@ -33,8 +26,6 @@ class DefaultStorySetting extends Component {
                       />
                       <SearchComponent
                           navigation={navigation}
-                          searchActiveAction={() => searchActiveAction}
-                          searchCancelAction={() => searchCancelAction}
                       />
                 </View>
               </View>

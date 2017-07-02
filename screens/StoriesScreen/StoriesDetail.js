@@ -4,13 +4,26 @@ import { Button, Icon } from 'react-native-elements';
 import Card from '../../components/Card';
 import CardSection from '../../components/CardSection';
 
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+  MenuContext
+} from 'react-native-popup-menu';
+
 
 class StoriesDetail extends Component {
 
 	constructor(props) {
 		super(props);
-
+		this.state = { opened: false }
 	}
+
+	closeMenu = () => {
+		this.setState({ opened: false })
+	}
+
 	render () {
 		const { StoryImage, StoryAbstractURL, StoryHeading } = this.props;
 
@@ -43,10 +56,33 @@ class StoriesDetail extends Component {
 						</Text>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.storyTypeMenuStyle}>
-						<Icon
-							name='more-horiz'
-							color='#fff'
-						/>
+					  <MenuContext ref="StoryMenuContext">
+						<Menu opened={this.state.opened}>
+							<MenuTrigger onPress={() => this.setState({ opened: true })}>
+								<Icon
+									name='more-horiz'
+									color='#fff'
+								/>
+							</MenuTrigger>
+							<MenuOptions style={{ left: 0 }}>
+								<MenuOption value={1} style={{ marginRight: 40 }}>
+									<Text onPress={() => {
+									  this.closeMenu()
+								  }}>Add to Favourites</Text>
+								</MenuOption>
+								<MenuOption value={1} style={{ marginRight: 40 }}>
+									<Text onPress={() => {
+									  this.closeMenu()
+								  }}>Share</Text>
+								</MenuOption>
+								<MenuOption value={1} style={{ marginRight: 40 }}>
+									<Text onPress={() => {
+									  this.closeMenu()
+								  }}>View in Browser</Text>
+								</MenuOption>
+							</MenuOptions>
+						</Menu>
+					  </MenuContext>
 					</TouchableOpacity>
 				</View>
 			</Card>

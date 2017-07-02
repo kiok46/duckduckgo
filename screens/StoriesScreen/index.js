@@ -7,13 +7,6 @@ import Colors from '../../constants/Colors';
 import { Icon } from 'react-native-elements'
 import StoriesList from './StoriesList';
 
-import {
-  Menu,
-  MenuOptions,
-  MenuOption,
-  MenuTrigger,
-  MenuContext
-} from 'react-native-popup-menu';
 
 import SearchComponent from '../../components/SearchComponent';
 

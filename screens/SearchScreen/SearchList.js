@@ -15,29 +15,27 @@ class SearchList extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			p: "k"
-		}
 	}
 
 	async componentWillMount() {
       // AsyncStorage.clear()
-      await this.props.getSearchHistory(searchQuery="p");
+      await this.props.getSearchHistory();
     }
 
-    onPressSearchHistoryItem = () => {
-		this.setState({p: "p"})
+    onPressSearchHistoryItem = (query) => {
+		console.log(this.props);
+		this.props.navigation.navigate('search');
+		this.props.changeSearchText(query)
+		this.props.Searching(isSearching = true)
 	}
 
 	render () {
-		console.log(this.props.search_history_items)
-		console.log("---p---")
 		return (
 			<ScrollView style={{ marginTop: 20, height: height}}>
-			{ this.props.search_history_items.map((i, j) =>
+			{ this.props.search_history_items.map((query, j) =>
 				<TouchableOpacity
 				    key={j}
-					onPress={this.onPressSearchHistoryItem}
+					onPress={() => this.onPressSearchHistoryItem(query)}
 				>
 				<Card
 				    marginBottomProp={0}
@@ -52,7 +50,7 @@ class SearchList extends Component {
 						    style={styles.searchListItemTextStyle}
 							numberOfLines={1}
 						>
-						Search + {this.state.p} + {i}
+						{query}
 						</Text>
 						<Icon
 							name='add'
@@ -61,12 +59,9 @@ class SearchList extends Component {
 					</View>
 				</Card>
 				</TouchableOpacity>
-
 			)
-
-		    }
-
-			</ScrollView>
+		  }
+		  </ScrollView>
 		);
 	}
 };
