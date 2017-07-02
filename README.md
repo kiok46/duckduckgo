@@ -1,6 +1,10 @@
 # DuckDuckGo
 DuckDuckGo app built in React Native
 
+```
+Only tested on ios, (Won't look good on Android, I am still working on it.)
+```
+https://exp.host/@kiok46/duckduckgo-rn
 
 <img src="screenshots/cover.png">
 
