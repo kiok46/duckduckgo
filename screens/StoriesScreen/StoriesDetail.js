@@ -20,6 +20,8 @@ class StoriesDetail extends Component {
 		this.state = { opened: false }
 	}
 
+
+
 	closeMenu = () => {
 		this.setState({ opened: false })
 	}
@@ -55,6 +57,7 @@ class StoriesDetail extends Component {
 						    LightHearted
 						</Text>
 					</TouchableOpacity>
+
 					<TouchableOpacity style={styles.storyTypeMenuStyle}>
 					  <MenuContext ref="StoryMenuContext">
 						<Menu opened={this.state.opened}>
@@ -64,18 +67,18 @@ class StoriesDetail extends Component {
 									color='#fff'
 								/>
 							</MenuTrigger>
-							<MenuOptions style={{ left: 0 }}>
-								<MenuOption value={1} style={{ marginRight: 40 }}>
+							<MenuOptions customStyles={optionsStyles}>
+								<MenuOption value={1} style={{  }}>
 									<Text onPress={() => {
 									  this.closeMenu()
 								  }}>Add to Favourites</Text>
 								</MenuOption>
-								<MenuOption value={1} style={{ marginRight: 40 }}>
+								<MenuOption value={1} style={{  }}>
 									<Text onPress={() => {
 									  this.closeMenu()
 								  }}>Share</Text>
 								</MenuOption>
-								<MenuOption value={1} style={{ marginRight: 40 }}>
+								<MenuOption value={1} style={{  }}>
 									<Text onPress={() => {
 									  this.closeMenu()
 								  }}>View in Browser</Text>
@@ -88,6 +91,20 @@ class StoriesDetail extends Component {
 			</Card>
 		);
 	}
+};
+
+const optionsStyles = {
+  optionsContainer: {
+    backgroundColor: 'white',
+    padding: 5,
+    marginLeft: -175,
+    marginTop: 25,
+  },
+  optionWrapper: {
+    backgroundColor: 'white',
+    margin: 2
+  },
+
 };
 
 const styles = StyleSheet.create({
@@ -141,8 +158,8 @@ const styles = StyleSheet.create({
 		paddingTop: 3
 	},
 	storyTypeMenuStyle: {
-		backgroundColor: 'black',
-		opacity: 0.6,
+		backgroundColor: 'rgba(0, 0, 0, .6)',
+		opacity: 1,
 		marginRight: 10,
 		borderRadius: 5,
 		padding: 3

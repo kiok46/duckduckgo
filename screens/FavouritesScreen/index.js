@@ -10,7 +10,6 @@ import {
   addNavigationHelpers,
 } from 'react-navigation';
 
-import Search from 'react-native-search-box';
 import Colors from '../../constants/Colors';
 
 import FavTabRouter from './FavTabRouter';
