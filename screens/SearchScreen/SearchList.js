@@ -25,6 +25,7 @@ class SearchList extends Component {
     onPressSearchHistoryItem = (query) => {
 		console.log(this.props);
 		this.props.navigation.navigate('search');
+		this.props.Searching(isSearching = true)
 		this.props.changeSearchText(query)
 	}
 
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
 	},
 	searchListItemTextStyle: {
         paddingTop: 5,
-		fontSize: 13,
+		fontSize: 16,
 		marginLeft: 15,
 		marginRight: 15,
 		width: Dimensions.get('window').width*(.7) -25,

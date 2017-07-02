@@ -72,6 +72,9 @@ class SettingsScreen extends Component {
       this.props.navigation.navigate('sourcesSetting');
   }
 
+  async onClearRecents() {
+     await AsyncStorage.clear()
+  }
 
   render() {
     return (
@@ -148,6 +151,7 @@ class SettingsScreen extends Component {
                     title='Clear Recents'
                     hideChevron
                     titleStyle={{ fontSize: 18 }}
+                    onPress={this.onClearRecents}
                 />
             </List>
             <InfoText

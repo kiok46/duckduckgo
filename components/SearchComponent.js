@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, TextInput, TouchableOpacity, LayoutAnimation, View, Dimensions, StyleSheet, Keyboard } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
-import { Button } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 
 import { connect } from 'react-redux';
 import * as actions from '../actions';
@@ -11,6 +11,9 @@ import * as actions from '../actions';
 class SearchComponent extends Component {
 	constructor(props) {
 		super(props);
+		this.state= {
+			touchable: false
+		}
 	}
 
 	componentWillUpdate() {
@@ -20,6 +23,7 @@ class SearchComponent extends Component {
 	onSearchActive = () => {
 		this.props.Searching(isSearching = true)
 		this.props.navigation.navigate('search');
+		this.setState({ touchable: true })
 	}
 
 	componentDidUpdate() {
@@ -49,6 +53,34 @@ class SearchComponent extends Component {
 
 	}
 
+	onPriorityIconPress = () => {
+		this.props.changeSearchText(search="!")
+	}
+
+    renderSearchIcon = () => {
+		if (this.props.is_searching) {
+			return (
+				<View style={{ backgroundColor: 'white'}}>
+					<Icon
+						name={'priority-high'}
+						size={14}
+						color={Colors.darkTintColor}
+						onPress={this.onPriorityIconPress}
+					/>
+				</View>
+			);
+		}
+		return (
+			<View style={{ backgroundColor: Colors.darkTintColor}}>
+				<Icon
+					name={'search'}
+					size={14}
+					color='white'
+				/>
+			</View>
+		);
+	}
+
 	onSubmitEditingSearch = () => {
 		this.props.storeSearchQuery(searchQuery=this.props.search_text)
 		this.props.changeSearchText(search="")
@@ -65,6 +97,7 @@ class SearchComponent extends Component {
 			<View style={styles.SearchContainer}>
 			  <TouchableOpacity
 			    style={{ elevation: 4 }}
+				disabled={this.state.touchable}
 			  	onPress={this.onSearchActive.bind(this)}
 			  >
 			    <View
@@ -72,13 +105,7 @@ class SearchComponent extends Component {
 				  style={styles.touchableSearch}>
 
 				  <View style={[styles.insideTouchableView, this.props.is_searching && styles.altTouchableView]}>
-				    <View style={{ backgroundColor: Colors.darkTintColor}}>
-						<FontAwesome
-							name={'search'}
-							size={14}
-							color='white'
-						/>
-					</View>
+				    {this.renderSearchIcon()}
 					<TextInput
 					    ref="search_textinput_component"
 						autoCorrect={false}
@@ -123,7 +150,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	altTouchableView:{
-		width: Dimensions.get('window').width*(.7) -25,
+		width: Dimensions.get('window').width*(.65) -25,
 	},
 	customSearchTextInputStyle:{
 		height: 24,
