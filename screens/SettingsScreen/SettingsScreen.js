@@ -3,7 +3,6 @@ import { ScrollView, StyleSheet, View, Text, AsyncStorage } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
 import { List, ListItem, Icon } from 'react-native-elements';
-import Search from 'react-native-search-box';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import SearchComponent from '../../components/SearchComponent';

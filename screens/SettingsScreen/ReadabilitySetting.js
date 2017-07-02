@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
-import Search from 'react-native-search-box';
 import { Button, Icon } from 'react-native-elements';
 import SearchComponent from '../../components/SearchComponent';
 import NoItemComponent from '../../components/NoItemComponent';

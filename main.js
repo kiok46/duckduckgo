@@ -3,7 +3,6 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
-import Search from 'react-native-search-box';
 import { Provider } from 'react-redux';
 import { FontAwesome } from '@expo/vector-icons';
 
