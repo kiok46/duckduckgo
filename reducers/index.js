@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import LoadSettings from './LoadSettingsReducer';
+import LoadSettings from './SettingsReducer';
 import SearchReducer from './SearchReducer';
 import HistoryReducer from './HistoryReducer';
 import FavouritesReducer from './FavouritesReducer';

@@ -41,6 +41,7 @@ class SettingsScreen extends Component {
     await this.props.changeAutocompleteSetting(true);
     await this.props.changeQuackOnRefreshSetting(true);
     await this.props.changeSaveRecentSetting(true);
+    await this.props.getDefaultTab();
   }
 
   onChangeQuackOnRefresh = () => {
@@ -56,7 +57,7 @@ class SettingsScreen extends Component {
   }
 
   onDefaultStorySetting = () => {
-      this.props.navigation.navigate('defaultStorySetting');
+      this.props.navigation.navigate('defaultTabSetting');
   }
 
   onReadabilitySetting = () => {
@@ -82,7 +83,7 @@ class SettingsScreen extends Component {
                 <ListItem
                     title='Home'
                     titleStyle={{ fontSize: 18 }}
-                    rightTitle="Stories (Default)"
+                    rightTitle={this.props.default_tab}
                     onPress={this.onDefaultStorySetting}
                 />
             </List>
@@ -217,7 +218,7 @@ const mapStateToProps = (state) => {
 		autocomplete: state.LoadSettings.autocomplete,
         quack_on_refresh: state.LoadSettings.quack_on_refresh,
         save_recent: state.LoadSettings.save_recent,
-
+        default_tab: state.LoadSettings.default_tab
 	};
 }
 

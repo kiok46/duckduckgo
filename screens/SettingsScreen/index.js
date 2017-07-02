@@ -1,7 +1,7 @@
 // Entry point is SettingScreen.js file.
 
 import SettingsScreen from './SettingsScreen';
-import DefaultStorySetting from './DefaultStorySetting';
+import DefaultTabSetting from './DefaultTabSetting';
 import ReadabilitySetting from './ReadabilitySetting';
 import RegionSetting from './RegionSetting';
 import SourcesSetting from './SourcesSetting';
@@ -9,7 +9,7 @@ import SourcesSetting from './SourcesSetting';
 
 export default {
     SettingsScreen,
-    DefaultStorySetting,
+    DefaultTabSetting,
     ReadabilitySetting,
     RegionSetting,
     SourcesSetting

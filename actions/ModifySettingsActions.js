@@ -3,10 +3,38 @@ import { AsyncStorage } from 'react-native';
 import {
 	AUTOCOMPLETE_SETTING,
 	QUACK_ON_REFRESH_SETTING,
-	SAVE_RECENT_SETTING
+	SAVE_RECENT_SETTING,
+	CHANGE_DEFAULT_TAB
 } from './types';
 
-import { INITIAL_STATE } from '../reducers/LoadSettingsReducer';
+import { INITIAL_STATE } from '../reducers/SettingsReducer';
+
+
+export const getDefaultTab = () => async dispatch => {
+	let defaulttab_value = await AsyncStorage.getItem('defaulttab_value');
+	defaulttab_value = JSON.parse(defaulttab_value)
+	if (defaulttab_value !== null){
+		dispatch({
+			type: CHANGE_DEFAULT_TAB,
+			payload: defaulttab_value
+		})
+	} else {
+		await AsyncStorage.setItem('defaulttab_value', JSON.stringify(INITIAL_STATE.default_tab));
+		dispatch({
+			type: CHANGE_DEFAULT_TAB,
+			payload: INITIAL_STATE.default_tab
+		})
+	}
+}
+
+export const changeDefaultTab = (tab=1) => async dispatch => {
+	await AsyncStorage.setItem('defaulttab_value', JSON.stringify(tab));
+	dispatch({
+		type: CHANGE_DEFAULT_TAB,
+		payload: tab
+	})
+
+}
 
 
 export const changeAutocompleteSetting = (toLoad=false) => async dispatch => {

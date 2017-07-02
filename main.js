@@ -2,7 +2,7 @@ import Expo, { AppLoading } from 'expo';
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
-import { Icon } from 'react-native-elements'
+import { Icon } from 'react-native-elements';
 import Search from 'react-native-search-box';
 import { Provider } from 'react-redux';
 import { FontAwesome } from '@expo/vector-icons';
@@ -19,11 +19,79 @@ import SettingsScreen from './screens/SettingsScreen';
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
 import store from './store';
 
+import { connect } from 'react-redux';
+// import * as actions from './actions';
+import getDefaultTab from './actions/ModifySettingsActions';
+
+
+const MainNavigator = StackNavigator({
+    Root: {
+           screen: TabNavigator({
+              search: { screen: SearchScreen },
+              stories: { screen: StoriesScreen },
+              favourites: {
+                  screen: FavouritesScreen,
+                  navigationOptions: {
+                    tabBarLabel: 'Favourites',
+                    tabBarIcon: ({ tintColor, focused }) => (
+                        <Icon
+                            name={'favorite'}
+                            size={24}
+                            color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+                          />
+                      ),
+                    }
+               },
+              history: {
+                  screen: HistoryScreen,
+                  navigationOptions: {
+                      tabBarLabel: 'History',
+                      tabBarIcon: ({ tintColor, focused }) => (
+                          <Icon
+                            name={'watch-later'}
+                            size={24}
+                            color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+                          />
+                      ),
+                  }
+              },
+              settings: { screen: SettingsScreen.SettingsScreen },
+          },
+          {
+              tabBarOptions: {
+                 activeTintColor: Colors.tintColor,
+                 showLabel: false
+              },
+              lazy: true,
+              tabBarPosition: 'bottom',
+              initialRouteName: 'stories'
+          }),
+      },
+    defaultTabSetting: {
+        screen: SettingsScreen.DefaultTabSetting,
+    },
+    readabilitySetting: {
+        screen: SettingsScreen.ReadabilitySetting,
+    },
+    regionSetting: {
+        screen: SettingsScreen.RegionSetting,
+    },
+    sourcesSetting: {
+        screen: SettingsScreen.SourcesSetting,
+    }
+
+})
+
 
 class AppContainer extends React.Component {
-  state = {
-    appIsReady: false,
-  };
+
+
+  constructor(props){
+      super(props)
+      this.state = {
+        appIsReady: false,
+      };
+  }
 
   componentWillMount() {
     this._loadAssetsAsync();
@@ -49,66 +117,7 @@ class AppContainer extends React.Component {
     }
   }
 
-
   render() {
-
-      const MainNavigator = StackNavigator({
-          Root: {
-                 screen: TabNavigator({
-                    search: { screen: SearchScreen },
-                    stories: { screen: StoriesScreen },
-                    favourites: {
-                        screen: FavouritesScreen,
-                        navigationOptions: {
-                          tabBarLabel: 'Favourites',
-                          tabBarIcon: ({ tintColor, focused }) => (
-                              <Icon
-                                  name={'favorite'}
-                                  size={24}
-                                  color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-                                />
-                            ),
-                          }
-                     },
-                    history: {
-                        screen: HistoryScreen,
-                        navigationOptions: {
-                            tabBarLabel: 'History',
-                            tabBarIcon: ({ tintColor, focused }) => (
-                                <Icon
-                                  name={'watch-later'}
-                                  size={24}
-                                  color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-                                />
-                            ),
-                        }
-                    },
-                    settings: { screen: SettingsScreen.SettingsScreen },
-                },
-                {
-                    tabBarOptions: {
-                       activeTintColor: Colors.tintColor,
-                       showLabel: false
-                    },
-                    lazy: true,
-                    tabBarPosition: 'bottom',
-                    initialRouteName: 'stories'
-                }),
-            },
-          defaultStorySetting: {
-              screen: SettingsScreen.DefaultStorySetting,
-          },
-          readabilitySetting: {
-              screen: SettingsScreen.ReadabilitySetting,
-          },
-          regionSetting: {
-              screen: SettingsScreen.RegionSetting,
-          },
-          sourcesSetting: {
-              screen: SettingsScreen.SourcesSetting,
-          }
-
-      })
 
       if (this.state.appIsReady){
           return (
@@ -116,25 +125,20 @@ class AppContainer extends React.Component {
               style={{ flex:1 }}>
               <StatusBar barStyle="light-content" />
               <Provider store={store}>
-                 <MainNavigator />
+                 <MainAppNavigator
+                    screenProps={"sdf"}
+                 />
               </Provider>
             </View>
           );
       }
       return (
-          <View
-             style={{ flex:1 }}>
-             <StatusBar barStyle="light-content" />
-             <Provider store={store}>
-               <MainNavigator />
-             </Provider>
-        </View>
+          <AppLoading />
       );
 
   }
 
 }
-
 
 
 const styles = StyleSheet.create({
@@ -150,5 +154,14 @@ const styles = StyleSheet.create({
       marginTop: 0
   }
 });
+
+const mapStateToProps = (state) => {
+    return {
+        default_tab: state.LoadSettings.default_tab
+    }
+}
+
+
+const MainAppNavigator = connect(mapStateToProps, getDefaultTab)(MainNavigator);
 
 Expo.registerRootComponent(AppContainer);

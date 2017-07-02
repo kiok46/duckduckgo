@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, Dimensions, StyleSheet } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { Icon } from 'react-native-elements';
 import Colors from '../constants/Colors';
 
 
@@ -12,7 +12,7 @@ class NoItemComponent extends Component {
 		return (
             <View style={styles.alignContainers}>
 				<View style={styles.containerStyle}>
-					<FontAwesome
+				    <Icon
 						name={this.props.iconName}
 						size={64}
 						color={Colors.tabIconDefault}
