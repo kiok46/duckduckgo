@@ -2,7 +2,7 @@
 DuckDuckGo app built in React Native
 
 
-<img src="cover.png">
+<img src="screenshots/cover.png">
 
 
 <img src="screenshots/settings.PNG?raw=true" width="270"> <img src="screenshots/recent_searches.PNG?raw=true" width="270"> <img src="screenshots/defaulttab.PNG?raw=true" width="270">
