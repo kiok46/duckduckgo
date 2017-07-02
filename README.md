@@ -2,12 +2,15 @@
 DuckDuckGo app built in React Native
 
 
-<img src="screenshots/stories.png?raw=true" width="270"> <img src="screenshots/search.png?raw=true" width="270"> <img src="screenshots/favourites.png?raw=true" width="270">
+<img src="screenshots/cover.png">
 
-<img src="screenshots/settings.png?raw=true" width="270"> <img src="screenshots/recent_searches.png?raw=true" width="270"> <img src="screenshots/defaulttab.png?raw=true" width="270">
+
+<img src="screenshots/settings.PNG?raw=true" width="270"> <img src="screenshots/recent_searches.PNG?raw=true" width="270"> <img src="screenshots/defaulttab.PNG?raw=true" width="270">
 
 
 ### Blogs and Gists
+
+Some of the gists which I wrote when I was building the application.
 
 -  [NoItemComponent](https://gist.github.com/kiok46/7f183b4b2556b7151fb811bfa8e5dbb0)
 -  [Change the Color of Custom tabs when they change.](https://gist.github.com/kiok46/88bb4eccc3bebebef6253a5ea87691b8)
