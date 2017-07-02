@@ -26,7 +26,6 @@ class SearchList extends Component {
 		console.log(this.props);
 		this.props.navigation.navigate('search');
 		this.props.changeSearchText(query)
-		this.props.Searching(isSearching = true)
 	}
 
 	render () {

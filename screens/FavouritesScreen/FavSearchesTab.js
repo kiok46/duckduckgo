@@ -46,7 +46,7 @@ class FavSearchesTab extends Component {
     render () {
         return (
             <NoItemComponent
-              iconName='heart'
+              iconName='favorite'
               infoHeading="No Favourites"
               infoParagraph="Add searches to your favouries, and they will be shown here."
             />
