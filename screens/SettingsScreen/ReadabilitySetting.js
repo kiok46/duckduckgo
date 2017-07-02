@@ -5,6 +5,7 @@ import Colors from '../../constants/Colors';
 import Search from 'react-native-search-box';
 import { Button, Icon } from 'react-native-elements';
 import SearchComponent from '../../components/SearchComponent';
+import NoItemComponent from '../../components/NoItemComponent';
 
 
 class RaedabilitySetting extends Component {
@@ -34,7 +35,11 @@ class RaedabilitySetting extends Component {
 
   render() {
     return (
-      <Text>Readability Settings</Text>
+        <NoItemComponent
+          iconName='error'
+          infoHeading="Not Implemented"
+          infoParagraph="Since this screen is similar to DefaultTab screen. "
+        />
     );
   }
 }

@@ -12,7 +12,7 @@ class SearchComponent extends Component {
 	constructor(props) {
 		super(props);
 		this.state= {
-			touchable: false
+			isTouchableDisabled: false
 		}
 	}
 
@@ -23,7 +23,7 @@ class SearchComponent extends Component {
 	onSearchActive = () => {
 		this.props.Searching(isSearching = true)
 		this.props.navigation.navigate('search');
-		this.setState({ touchable: true })
+		this.setState({ isTouchableDisabled: true })
 	}
 
 	componentDidUpdate() {
@@ -37,6 +37,7 @@ class SearchComponent extends Component {
 		Keyboard.dismiss()
 		this.props.navigation.goBack(null);
 		this.props.changeSearchText(search="")
+		this.setState({ isTouchableDisabled: false })
 	}
 
 	showCancelButton = () => {
@@ -54,7 +55,7 @@ class SearchComponent extends Component {
 	}
 
 	onPriorityIconPress = () => {
-		this.props.changeSearchText(search="!")
+		this.props.changeSearchText(search=this.props.search_text+"!")
 	}
 
     renderSearchIcon = () => {
@@ -63,7 +64,7 @@ class SearchComponent extends Component {
 				<View style={{ backgroundColor: 'white'}}>
 					<Icon
 						name={'priority-high'}
-						size={14}
+						size={16}
 						color={Colors.darkTintColor}
 						onPress={this.onPriorityIconPress}
 					/>
@@ -74,7 +75,7 @@ class SearchComponent extends Component {
 			<View style={{ backgroundColor: Colors.darkTintColor}}>
 				<Icon
 					name={'search'}
-					size={14}
+					size={16}
 					color='white'
 				/>
 			</View>
@@ -97,7 +98,7 @@ class SearchComponent extends Component {
 			<View style={styles.SearchContainer}>
 			  <TouchableOpacity
 			    style={{ elevation: 4 }}
-				disabled={this.state.touchable}
+				disabled={this.state.isTouchableDisabled}
 			  	onPress={this.onSearchActive.bind(this)}
 			  >
 			    <View

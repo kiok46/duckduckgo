@@ -2,9 +2,9 @@
 DuckDuckGo app built in React Native
 
 
-<img src="screenshots/favourites.png?raw=true" width="270">
-<img src="screenshots/history.png?raw=true" width="270">
-<img src="screenshots/stories.png?raw=true" width="270">
+<img src="screenshots/stories.png?raw=true" width="270"> <img src="screenshots/search.png?raw=true" width="270"> <img src="screenshots/favourites.png?raw=true" width="270">
+
+<img src="screenshots/settings.png?raw=true" width="270"> <img src="screenshots/recent_searches.png?raw=true" width="270"> <img src="screenshots/defaulttab.png?raw=true" width="270">
 
 
 ### Blogs and Gists
