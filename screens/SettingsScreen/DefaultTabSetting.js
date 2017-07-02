@@ -42,9 +42,6 @@ class DefaultTabSetting extends Component {
 
     constructor(props){
         super(props)
-        this.state = {
-            checked: 1
-        }
     }
 
 
@@ -67,7 +64,7 @@ class DefaultTabSetting extends Component {
                 <Icon
                     name='done'
                     color={Colors.tintColor}
-                    containerStyle={{ right: 0 }}
+                    containerStyle={{ marginLeft: 20 }}
                 />
             );
         }
@@ -75,7 +72,6 @@ class DefaultTabSetting extends Component {
 
     selectDefaultTab = (idx) => {
         this.props.changeDefaultTab(tab=idx)
-        // this.setState({ checked: idx })
         this.props.navigation.goBack(null)
     }
 
@@ -117,13 +113,13 @@ const styles = StyleSheet.create({
 		justifyContent: 'flex-start',
 		marginTop: 10,
 		marginBottom: 10,
-		//marginRight: 20,
-		// marginLeft: 20,
+		marginRight: 20,
+		marginLeft: 20,
 
 	},
 	searchListItemTextStyle: {
         paddingTop: 5,
-		fontSize: 13,
+		fontSize: 16,
 		marginLeft: 15,
 		marginRight: 15,
 		width: Dimensions.get('window').width*(.7) -25,
