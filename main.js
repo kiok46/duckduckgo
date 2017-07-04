@@ -59,7 +59,12 @@ const MainNavigator = StackNavigator({
           {
               tabBarOptions: {
                  activeTintColor: Colors.tintColor,
-                 showLabel: false
+                 showLabel: false,
+                 showIcon: true,
+                 style: {
+                  backgroundColor: 'white',
+                 },
+                 tabBarIcon: ({ tintColor }) => {Colors.darkTintColor}
               },
               lazy: true,
               tabBarPosition: 'bottom',
