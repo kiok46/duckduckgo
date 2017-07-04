@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TextInput, TouchableOpacity, LayoutAnimation, View, Dimensions, StyleSheet, Keyboard } from 'react-native';
+import { Text, TextInput, TouchableOpacity, LayoutAnimation, View, Dimensions, StyleSheet, Keyboard, Platform } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import { Button, Icon } from 'react-native-elements';
@@ -117,6 +117,7 @@ class SearchComponent extends Component {
 						keyboardType={'web-search'}
 						onFocus={this.onSearchActive.bind(this)}
 						placeholder="Search DuckDuckGo"
+						underlineColorAndroid={Colors.darkTintColor}
 						style={[styles.customSearchTextInputStyle,]}
 					/>
 				  </View>
