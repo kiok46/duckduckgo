@@ -61,6 +61,13 @@ const MainNavigator = StackNavigator({
                  activeTintColor: Colors.tintColor,
                  showLabel: false,
                  showIcon: true,
+                 indicatorStyle: {
+                     backgroundColor: 'transparent'
+                 },
+                 iconStyle: {
+                     width: 24,
+                     height: 24
+                 },
                  style: {
                   backgroundColor: 'white',
                  },
