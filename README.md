@@ -1,8 +1,9 @@
 # DuckDuckGo
-DuckDuckGo app built in React Native
+Unofficial DuckDuckGo app built in React Native
 
+*Note: This is not the official DuckDuckGo App but a Fan-made. I made it only for Learning purpose.*
 
-https://exp.host/@kiok46/duckduckgo-rn
+Find it on Expo: https://exp.host/@kiok46/duckduckgo-rn
 
 <img src="screenshots/cover.png">
 
