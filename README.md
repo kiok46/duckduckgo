@@ -8,6 +8,19 @@ Find it on Expo: https://exp.host/@kiok46/duckduckgo-rn
 <img src="screenshots/cover.png">
 
 
+### How to run?
+
+This project was built using [expo](https://expo.io/).
+Please do the following to run.
+```
+npm install exp --global
+git clone https://github.com/kiok46/duckduckgo.git
+cd duckduckgo
+exp start
+```
+This will give you a URL and a QR code, you can use either to run the app devices or simulator (using Expo Client).
+
+
 ### Android
 
 <img src="screenshots/stories.jpg?raw=true" width="270"> <img src="screenshots/search.jpg?raw=true" width="270"> <img src="screenshots/favourites.jpg?raw=true" width="270">
