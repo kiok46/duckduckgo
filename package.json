@@ -5,10 +5,11 @@
   "author": "Kuldeep Singh",
   "main": "App.js",
   "scripts": {
-    "test": "node node_modules/jest/bin/jest.js"
+      "start": "node node_modules/react-native/local-cli/cli.js start",
+      "test": "jest"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native"
   },
   "dependencies": {
       "react": "16.0.0",
@@ -23,6 +24,9 @@
       "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "jest-expo": "~22.0.1"
+      "babel-jest": "21.2.0",
+      "babel-preset-react-native": "4.0.0",
+      "jest": "21.2.1",
+      "react-test-renderer": "16.0.0-beta.5"
   }
 }
