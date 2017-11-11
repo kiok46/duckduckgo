@@ -3,29 +3,30 @@
   "version": "0.9.0",
   "description": "DuckDuckGo App build in React-Native",
   "author": "Kuldeep Singh",
-  "main": "main.js",
+  "main": "App.js",
   "scripts": {
-    "test": "node node_modules/jest/bin/jest.js"
+      "start": "node node_modules/react-native/local-cli/cli.js start",
+      "test": "jest"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native"
   },
   "dependencies": {
-    "@expo/ex-navigation": "~3.0.0",
-    "@expo/samples": "~1.0.3",
-    "axios": "^0.16.2",
-    "expo": "17.0.0",
-    "react": "16.0.0-alpha.6",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-17.0.0.tar.gz",
-    "react-native-elements": "^0.12.2",
-    "react-native-popup-menu": "^0.7.5",
-    "react-native-vector-icons": "^4.2.0",
-    "react-navigation": "^1.0.0-beta.11",
-    "react-redux": "^5.0.5",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+      "react": "16.0.0",
+      "react-native": "0.50.3",
+      "axios": "^0.17.0",
+      "react-native-elements": "^0.18.2",
+      "react-native-popup-menu": "^0.9.0",
+      "react-native-vector-icons": "^4.2.0",
+      "react-navigation": "^1.0.0-beta.19",
+      "react-redux": "^5.0.5",
+      "redux": "^3.6.0",
+      "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "jest-expo": "~1.0.1"
+      "babel-jest": "21.2.0",
+      "babel-preset-react-native": "4.0.0",
+      "jest": "21.2.1",
+      "react-test-renderer": "16.0.0-beta.5"
   }
 }
