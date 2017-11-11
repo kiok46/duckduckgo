@@ -10,16 +10,12 @@ Find it on Expo: https://exp.host/@kiok46/duckduckgo-rn
 
 ### How to run?
 
-This project was built using [expo](https://expo.io/).
 Please do the following to run.
 ```
-npm install exp --global
 git clone https://github.com/kiok46/duckduckgo.git
-cd duckduckgo
-exp start
+cd duckduckgo && npm install
 ```
-This will give you a URL and a QR code, you can use either to run the app devices or simulator (using Expo Client).
-
+then run `react-native run-ios` or `react-native run-android`
 
 ### Android
 
