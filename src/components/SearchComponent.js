@@ -10,6 +10,8 @@ import * as actions from '../actions';
 class SearchComponent extends Component {
 	constructor(props) {
 		super(props);
+		this.touchableSearch = null;
+		this.searchTextinputComponent = null;
 		this.state= {
 			isTouchableDisabled: false
 		}
@@ -27,7 +29,7 @@ class SearchComponent extends Component {
 
 	componentDidUpdate() {
 		if (this.props.is_searching) {
-			this.refs.search_textinput_component.focus()
+			this.searchTextinputComponent.focus()
 		}
 	}
 
@@ -102,13 +104,13 @@ class SearchComponent extends Component {
 				  	onPress={this.onSearchActive.bind(this)}
 				  >
 				    <View
-					  ref="touchable_search"
-					  style={styles.touchableSearch}>
+					  ref={touchableSearch => this.touchableSearch = touchableSearch}
+					  style={styles.touchableSearchStyle}>
 
 					  <View style={[styles.insideTouchableView, this.props.is_searching && styles.altTouchableView]}>
 					    {this.renderSearchIcon()}
 						<TextInput
-						    ref="search_textinput_component"
+						    ref={searchTextinputComponent => this.searchTextinputComponent = searchTextinputComponent}
 							autoCorrect={false}
 							placeholderTextColor='white'
 							value={this.props.search_text}
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		backgroundColor: Colors.tintColor
 	},
-	touchableSearch: {
+	touchableSearchStyle: {
 		backgroundColor: Colors.darkTintColor,
 		borderRadius: 4,
 		alignItems: 'center',

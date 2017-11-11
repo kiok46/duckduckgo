@@ -17,6 +17,7 @@ class StoriesDetail extends Component {
 
 	constructor(props) {
 		super(props);
+        this.storyMenuContext = null;
 		this.state = { opened: false }
 	}
 
@@ -57,7 +58,7 @@ class StoriesDetail extends Component {
 					</TouchableOpacity>
 
 					<TouchableOpacity style={styles.storyTypeMenuStyle}>
-					  <MenuContext ref="StoryMenuContext">
+					  <MenuContext ref={storyMenuContext => this.storyMenuContext = storyMenuContext}>
 						<Menu opened={this.state.opened}>
 							<MenuTrigger onPress={() => this.setState({ opened: true })}>
 								<Icon
