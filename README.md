@@ -8,7 +8,29 @@ Find it on Expo: https://exp.host/@kiok46/duckduckgo-rn
 <img src="screenshots/cover.png">
 
 
-### How to run?
+### How to run via expo?
+
+Use the `expo-branch` branch to run the application using expo, please do the following:
+```
+npm install exp --global
+git clone https://github.com/kiok46/duckduckgo.git
+cd duckduckgo
+git checkout expo-branch
+npm install
+```
+
+Method: 1
+```
+exp start
+scan the QR-code and test it on real device
+```
+
+Method: 2
+
+`Open the expo app on your device and open the project`
+
+
+### How to run without expo?
 
 Please do the following to run.
 ```
