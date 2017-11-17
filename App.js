@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
   StatusBar,
-  View
+  View,
 } from 'react-native';
 import { Provider } from 'react-redux';
-import MainNavigator from './navigation';
-import store from './store';
+import MainNavigator from './src/navigation';
+import store from './src/store';
 import { connect } from 'react-redux';
-import getDefaultTab from './actions/ModifySettingsActions';
+import getDefaultTab from './src/actions/ModifySettingsActions';
 
 
 export default class App extends Component<{}> {
