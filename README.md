@@ -39,6 +39,14 @@ cd duckduckgo && npm install
 ```
 then run `react-native run-ios` or `react-native run-android`
 
+### Does search work?
+
+The app is using a sample data which is in `src/constants/data.json`
+
+You can use DuckDuckGo's API or any other API api by updating the `SearchList` component from here `componentWillMount` when `onSubmitEditingSearch` gets called.
+
+Showing the search results wasn't the main goal but the UI when building the app. But sure PR is welcome. :)
+
 ### Android
 
 <img src="screenshots/stories.jpg?raw=true" width="270"> <img src="screenshots/search.jpg?raw=true" width="270"> <img src="screenshots/favourites.jpg?raw=true" width="270">
