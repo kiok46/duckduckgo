@@ -9,7 +9,7 @@ import {
   MenuOptions,
   MenuOption,
   MenuTrigger,
-  MenuContext
+	renderers
 } from 'react-native-popup-menu';
 
 
@@ -23,6 +23,16 @@ class StoriesDetail extends Component {
 
 	closeMenu = () => {
 		this.setState({ opened: false })
+	}
+
+	openLink = (url) => {
+		Linking.canOpenURL(url).then(supported => {
+			if (supported) {
+				Linking.openURL(url);
+			} else{
+				alert('Failed to open in browser');
+			}
+		});
 	}
 
 	render () {
@@ -57,34 +67,20 @@ class StoriesDetail extends Component {
 						</Text>
 					</TouchableOpacity>
 
-					<TouchableOpacity style={styles.storyTypeMenuStyle}>
-					  <MenuContext ref={storyMenuContext => this.storyMenuContext = storyMenuContext}>
-						<Menu opened={this.state.opened}>
-							<MenuTrigger onPress={() => this.setState({ opened: true })}>
+					<TouchableOpacity style={styles.storyTypeMenuStyle}>			  
+						<Menu renderer={renderers.Popover} >
+							<MenuTrigger>
 								<Icon
 									name='more-horiz'
 									color='#fff'
 								/>
 							</MenuTrigger>
 							<MenuOptions customStyles={optionsStyles}>
-								<MenuOption value={1} style={{  }}>
-									<Text onPress={() => {
-									  this.closeMenu()
-								  }}>Add to Favourites</Text>
-								</MenuOption>
-								<MenuOption value={1} style={{  }}>
-									<Text onPress={() => {
-									  this.closeMenu()
-								  }}>Share</Text>
-								</MenuOption>
-								<MenuOption value={1} style={{  }}>
-									<Text onPress={() => {
-									  this.closeMenu()
-								  }}>View in Browser</Text>
-								</MenuOption>
+								<MenuOption onSelect={() => alert('Add to Favourites')} text='Add to Favourites' />
+								<MenuOption onSelect={() => alert('Shared')} text='Share' />
+								<MenuOption onSelect={() => this.openLink(StoryAbstractURL)} text='View in Browser' />
 							</MenuOptions>
 						</Menu>
-					  </MenuContext>
 					</TouchableOpacity>
 				</View>
 			</Card>
@@ -94,14 +90,10 @@ class StoriesDetail extends Component {
 
 const optionsStyles = {
   optionsContainer: {
-    backgroundColor: 'white',
-    padding: 5,
-    marginLeft: -175,
-    marginTop: 25,
+    padding: 5
   },
   optionWrapper: {
-    backgroundColor: 'white',
-    margin: 2
+    margin: 5
   },
 
 };
