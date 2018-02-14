@@ -18,11 +18,6 @@ class StoriesDetail extends Component {
 	constructor(props) {
 		super(props);
         this.storyMenuContext = null;
-		this.state = { opened: false }
-	}
-
-	closeMenu = () => {
-		this.setState({ opened: false })
 	}
 
 	openLink = (url) => {
@@ -67,21 +62,19 @@ class StoriesDetail extends Component {
 						</Text>
 					</TouchableOpacity>
 
-					<TouchableOpacity style={styles.storyTypeMenuStyle}>			  
-						<Menu renderer={renderers.Popover} >
-							<MenuTrigger>
-								<Icon
-									name='more-horiz'
-									color='#fff'
-								/>
-							</MenuTrigger>
-							<MenuOptions customStyles={optionsStyles}>
-								<MenuOption onSelect={() => alert('Add to Favourites')} text='Add to Favourites' />
-								<MenuOption onSelect={() => alert('Shared')} text='Share' />
-								<MenuOption onSelect={() => this.openLink(StoryAbstractURL)} text='View in Browser' />
-							</MenuOptions>
-						</Menu>
-					</TouchableOpacity>
+					<Menu renderer={renderers.Popover}>
+						<MenuTrigger style={styles.storyTypeMenuStyle} customStyles={customStyles}>
+							<Icon
+								name='more-horiz'
+								color='#fff'
+							/>
+						</MenuTrigger>
+						<MenuOptions customStyles={optionsStyles}>
+							<MenuOption onSelect={() => alert('Add to Favourites')} text='Add to Favourites' />
+							<MenuOption onSelect={() => alert('Shared')} text='Share' />
+							<MenuOption onSelect={() => this.openLink(StoryAbstractURL)} text='View in Browser' />
+						</MenuOptions>
+					</Menu>
 				</View>
 			</Card>
 		);
@@ -96,6 +89,10 @@ const optionsStyles = {
     margin: 5
   },
 
+};
+
+const customStyles = {
+	TriggerTouchableComponent: TouchableOpacity
 };
 
 const styles = StyleSheet.create({
@@ -132,8 +129,6 @@ const styles = StyleSheet.create({
       top: 0,
 	  justifyContent: 'space-around',
       flexDirection: 'row',
-	  // opacity: 0.5,
-	  // backgroundColor: 'black',
     },
     storyTypeStyle: {
 		backgroundColor: 'black',
