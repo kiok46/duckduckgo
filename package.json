@@ -16,7 +16,7 @@
       "react-native": "0.50.3",
       "axios": "^0.17.0",
       "react-native-elements": "^0.18.2",
-      "react-native-popup-menu": "^0.9.0",
+      "react-native-popup-menu": "^0.12.2",
       "react-native-vector-icons": "^4.2.0",
       "react-navigation": "^1.0.0-beta.19",
       "react-redux": "^5.0.5",
