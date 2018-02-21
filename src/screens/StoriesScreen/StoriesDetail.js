@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, Image, Linking, StyleSheet, TouchableOpacity } from 'react-native';
-import { Button, Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import Card from '../../components/Card';
 import CardSection from '../../components/CardSection';
 
@@ -9,15 +9,26 @@ import {
   MenuOptions,
   MenuOption,
   MenuTrigger,
-	renderers
+  renderers
 } from 'react-native-popup-menu';
 
+import Share from 'react-native-share';
 
 class StoriesDetail extends Component {
 
 	constructor(props) {
 		super(props);
-        this.storyMenuContext = null;
+		this.storyMenuContext = null;
+	}
+
+	openShare = (heading, url) => {
+		let attributes = {
+			title: heading,
+			message: heading+". Check this out : ",
+			url: url,
+			subject: heading
+		}
+		Share.open(attributes);		
 	}
 
 	openLink = (url) => {
@@ -71,7 +82,7 @@ class StoriesDetail extends Component {
 						</MenuTrigger>
 						<MenuOptions customStyles={optionsStyles}>
 							<MenuOption onSelect={() => alert('Add to Favourites')} text='Add to Favourites' />
-							<MenuOption onSelect={() => alert('Shared')} text='Share' />
+							<MenuOption onSelect={() => this.openShare(StoryHeading,StoryAbstractURL)} text='Share' />
 							<MenuOption onSelect={() => this.openLink(StoryAbstractURL)} text='View in Browser' />
 						</MenuOptions>
 					</Menu>
